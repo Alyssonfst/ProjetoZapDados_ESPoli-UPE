@@ -1,6 +1,7 @@
 package br.com.services.model;
 
 import java.util.Map;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +18,6 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class RelatorioExpressoes {
      private String username;
-    private Map<String, Integer> expressoes;
+     private Map<String, Integer> expressoes;
 
 }
