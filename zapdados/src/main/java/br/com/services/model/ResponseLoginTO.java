@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ *
+ * @author thiagoespinhara
+ */
 @Getter
 @Setter
 @Builder
@@ -15,7 +19,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class QtdUso {
-    private String username;
-    private int quantidadeMensagens;
+public class ResponseLoginTO {
+    private String token;
 }

@@ -7,17 +7,28 @@ import { RelatorioTempoUsoComponent } from './relatorio-tempo-uso/relatorio-temp
 import { RelatorioExpressoesUsadasComponent } from './relatorio-expressoes-usadas/relatorio-expressoes-usadas.component';
 
 import { NgChartsModule } from 'ng2-charts';
+import { LoginComponent } from './login/login.component';
+
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RelatorioTempoUsoComponent,
-    RelatorioExpressoesUsadasComponent
+    RelatorioExpressoesUsadasComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgChartsModule
+    NgChartsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
