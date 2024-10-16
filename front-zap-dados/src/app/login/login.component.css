@@ -1,0 +1,70 @@
+body {
+    background-color: #f0f2f5; /* Cor de fundo suave */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura da tela */
+    margin: 0; /* Remove margens padrão */
+}
+
+.login-container {
+    background-color: #ffffff; /* Fundo do formulário */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 300px; /* Largura do formulário */
+}
+
+h2 {
+    text-align: center; /* Centraliza o título */
+    color: #333; /* Cor do título */
+}
+
+form {
+    display: flex; /* Utiliza flexbox para o layout */
+    flex-direction: column; /* Coloca os itens em coluna */
+}
+
+div {
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+}
+
+label {
+    margin-bottom: 5px; /* Espaçamento abaixo do label */
+    color: #666; /* Cor do texto */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px; /* Espaçamento interno dos campos */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    outline: none; /* Remove contorno padrão ao focar */
+    transition: border-color 0.3s; /* Transição suave para o foco */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0d1013; /* Borda azul ao focar */
+}
+
+button {
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #0d1013; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    transition: background-color 0.3s; /* Transição suave para o hover */
+}
+
+button:hover {
+    background-color: #0d1013; /* Cor mais escura ao passar o mouse */
+}
+
+.error-message {
+    color: red; /* Cor da mensagem de erro */
+    text-align: center; /* Centraliza a mensagem */
+    margin-top: 10px; /* Espaçamento acima da mensagem */
+}
