@@ -1,5 +1,7 @@
 package br.com.services.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -8,6 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ *
+ * @author thiagoespinhara
+ */
 @Getter
 @Setter
 @Builder
@@ -15,7 +21,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class QtdUso {
+@Entity
+public class Usuario {
+    @Id
     private String username;
-    private int quantidadeMensagens;
+    private String password;
 }
