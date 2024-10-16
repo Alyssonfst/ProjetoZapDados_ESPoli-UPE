@@ -1,1 +1,26 @@
-<p>relatorio-tempo-uso works!</p>
+<div style="display: flex; justify-content: space-around;">
+    <div>
+      <h2>Uso por Horário do Dia</h2>
+      <canvas
+        baseChart
+        [datasets]="timeOfDayChartData"
+        [labels]="timeOfDayChartLabels"
+        [options]="timeOfDayChartOptions"
+        [legend]="true"
+        [type]="'bar'"
+        >
+      </canvas>
+    </div>
+    <div>
+      <h2>Uso por Dia da Semana</h2>
+      <canvas
+        baseChart
+        [datasets]="dayOfWeekChartData"
+        [labels]="dayOfWeekChartLabels"
+        [options]="dayOfWeekChartOptions"
+        [legend]="true"
+        [type]="'radar'">
+      </canvas>
+    </div>
+  </div>
+  
