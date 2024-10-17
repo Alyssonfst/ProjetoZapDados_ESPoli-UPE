@@ -1,10 +1,10 @@
 package br.com.zapdados.controllers;
 
-import br.com.services.UsuarioService;
-import br.com.services.model.ResponseLoginTO;
-import br.com.services.model.Usuario;
+import br.com.zapdados.service.IUsuarioService;
+import br.com.zapdados.service.UsuarioServiceImpl;
+import br.com.zapdados.model.ResponseLoginTO;
+import br.com.zapdados.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,18 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     
     @Autowired
-    private UsuarioService usuarioService;
+    private IUsuarioService usuarioService;
 
     @PostMapping("/login")
     public ResponseEntity<ResponseLoginTO> login(@RequestBody Usuario usuario) {
 
         System.out.println(usuario);
-
-        if (usuario.getUsername().equals("admin") && usuario.getPassword().equals("admin")) { 
-            return new ResponseEntity<>(new ResponseLoginTO("etc123"), HttpStatus.OK);
+        if (usuarioService.validarLogin(usuario.getUsername(), usuario.getPassword())) {
+            return ResponseEntity.ok().body(new ResponseLoginTO("etc123"));
         } else {
-            return new ResponseEntity<>(new ResponseLoginTO(null), HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.status(403).body(new ResponseLoginTO("etc123"));
         }
-
     }
 }

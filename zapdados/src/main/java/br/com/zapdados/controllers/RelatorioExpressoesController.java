@@ -1,7 +1,7 @@
 package br.com.zapdados.controllers;
 
-import br.com.services.RelatorioExpressoesService;
-import br.com.services.model.RelatorioExpressoes;
+import br.com.zapdados.service.RelatorioExpressoesService;
+import br.com.zapdados.model.RelatorioExpressoes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

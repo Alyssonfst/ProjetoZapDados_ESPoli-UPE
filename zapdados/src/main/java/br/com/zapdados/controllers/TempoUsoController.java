@@ -1,6 +1,6 @@
 package br.com.zapdados.controllers;
 
-import br.com.services.model.QtdUso;
+import br.com.zapdados.model.QtdUso;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.services.model.TempoUsoDados;
+import br.com.zapdados.model.TempoUsoDados;
 
 @RestController
 @RequestMapping("/api/tempo-uso")

@@ -1,4 +1,4 @@
-package br.com.services;
+package br.com.zapdados.service;
 
 import edu.stanford.nlp.pipeline.*;
 import org.springframework.context.annotation.Bean;

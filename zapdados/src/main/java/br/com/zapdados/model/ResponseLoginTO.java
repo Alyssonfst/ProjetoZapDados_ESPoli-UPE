@@ -1,4 +1,4 @@
-package br.com.services.model;
+package br.com.zapdados.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
