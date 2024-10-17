@@ -1,0 +1,32 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RedirectMatch ^/$ /trilha-audit-web/
+
+# Condição para redirecionamento de pagina
+RewriteCond %{SERVER_PORT} 80
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# not rewrite css, js and images
+RewriteCond %{REQUEST_URI} !\.(?:css|js|map|jpe?g|gif|png)$ [NC]
+RewriteRule ^(.*)$ /trilha-audit-web/index.html?path=$1 [NC,L,QSA]
+
+# linhas novas
+
+# RewriteRule ^ /trilha-audit-web/index.html
+
+<FilesMatch "\.(html|htm|js|css|json)$">
+  FileETag None
+  <IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 12 Jan 1980 05:00:00 GMT"
+  </IfModule>
+</FilesMatch>
+
+</IfModule>

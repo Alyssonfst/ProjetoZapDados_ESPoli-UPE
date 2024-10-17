@@ -1,20 +1,32 @@
-# Usar uma imagem oficial do Node.js como base
-FROM node:18
+# stage1 as builder
+FROM node:16-alpine as builder
 
-# Definir o diretório de trabalho dentro do container
-WORKDIR /app
+# copy the package.json to install dependencies
+COPY package.json package-lock.json ./
 
-# Copiar o package.json e o package-lock.json
-COPY package*.json ./
+# Install the dependencies and make the folder
+RUN npm install && mkdir /app-ui && mv ./node_modules ./app-ui
 
-# Instalar as dependências da aplicação
-RUN npm install
+WORKDIR /app-ui
 
-# Copiar todo o código da aplicação Angular para o diretório de trabalho
 COPY . .
 
-# Expor a porta 4200 para o servidor de desenvolvimento
-EXPOSE 4200
+# Build the project and copy the files
+RUN npm run ng build -- --deploy-url=/front-zap-dados/ --prod
 
-# Comando para iniciar a aplicação no modo de desenvolvimento
-CMD ["npm", "run", "start"]
+
+FROM nginx:alpine
+
+#!/bin/sh
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+## Remove default nginx index page
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy from the stahg 1
+COPY --from=builder /app-ui/dist /usr/share/nginx/html
+
+EXPOSE 4200 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
