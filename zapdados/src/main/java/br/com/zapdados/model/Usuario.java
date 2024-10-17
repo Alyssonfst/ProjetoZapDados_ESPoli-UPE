@@ -1,19 +1,29 @@
-package br.com.services.model;
+package br.com.zapdados.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
+/**
+ *
+ * @author thiagoespinhara
+ */
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class QtdUso {
+@ToString
+@Entity
+public class Usuario {
+    @Id
     private String username;
-    private int quantidadeMensagens;
+    private String password;
 }

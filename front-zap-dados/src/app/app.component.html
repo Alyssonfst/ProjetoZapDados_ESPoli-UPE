@@ -1,9 +1,10 @@
 <!-- Menu Horizontal -->
-<div class="menu">
-    <a href="/" class="active">Home</a>
+<div class="menu" *ngIf="isMenuEnabled()">
+    <a href="/home" class="active">Home</a>
     <a href="/relatorio-tempo-uso">Relatório de Tempo de Uso</a>
     <a href="/relatorio-expressoes-usadas">Relatório de Expressões mais Usadas</a>
-    <a href="#" class="logout">Sair</a> 
+    <a href="/carregar-arquivo">Carregar arquivo</a>
+    <a href="#" (click)="logout(); $event.preventDefault();" class="logout">Sair</a> 
 </div>
 
 <div class="conteudo">
