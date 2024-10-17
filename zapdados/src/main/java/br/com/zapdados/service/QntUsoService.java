@@ -1,4 +1,4 @@
-package br.com.services;
+package br.com.zapdados.service;
 
 public class QntUsoService {
 

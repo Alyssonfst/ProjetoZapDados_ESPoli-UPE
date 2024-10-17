@@ -1,7 +1,4 @@
-package br.com.services.model;
-
-import java.util.Map;
-import java.util.List;
+package br.com.zapdados.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,8 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class RelatorioExpressoes {
-     private String username;
-     private Map<String, Integer> expressoes;
-
+public class QtdUso {
+    private String username;
+    private int quantidadeMensagens;
 }

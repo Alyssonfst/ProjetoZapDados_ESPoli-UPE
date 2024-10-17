@@ -1,19 +1,14 @@
-package br.com.services.model;
+package br.com.zapdados.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
 import lombok.ToString;
 
-/**
- *
- * @author thiagoespinhara
- */
 @Getter
 @Setter
 @Builder
@@ -21,9 +16,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-@Entity
-public class Usuario {
-    @Id
-    private String username;
-    private String password;
+public class TempoUsoDados {
+    private int horaDoDia;
+    private String diaSemana;
+    private int dia;
+    private int mes;
+    private int ano;
+    private List<QtdUso> qtdUso;
 }
