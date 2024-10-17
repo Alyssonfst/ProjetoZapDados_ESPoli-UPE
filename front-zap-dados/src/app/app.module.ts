@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     RelatorioTempoUsoComponent,
     RelatorioExpressoesUsadasComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CarregarArquivoComponent
   ],
   imports: [
     BrowserModule,
