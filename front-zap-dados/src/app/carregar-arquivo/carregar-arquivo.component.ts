@@ -1,5 +1,6 @@
 // carregar-arquivo.component.ts
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-carregar-arquivo',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CarregarArquivoComponent implements OnInit {
-  constructor() {}
+
+  message: string | null = null;
+  selectedFile: File | null = null
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -17,6 +21,36 @@ export class CarregarArquivoComponent implements OnInit {
     if (file) {
       console.log('Arquivo selecionado:', file);
       // Aqui você pode adicionar a lógica para lidar com o arquivo
+      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      if (fileExtension === 'txt') {
+        this.message = 'Arquivo selecionado com sucesso!';
+        this.selectedFile = file
+
+
+      } else {
+        this.message = 'Por favor, selecione um arquivo .txt';
+      }
+    }
+  }
+
+  onUpload(): void {
+
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+
+      this.http.post('http://localhost:8080/upload', formData).subscribe(
+        (response) => {
+          console.log('Upload bem-sucedido:', response);
+          this.message = 'Upload realizado com sucesso!';
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Erro ao enviar o arquivo:', error);
+          this.message = 'Erro ao enviar o arquivo!';
+        }
+      );
+    } else {
+      this.message = 'Nenhum arquivo selecionado para upload.';
     }
   }
 }

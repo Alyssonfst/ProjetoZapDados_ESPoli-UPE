@@ -1,0 +1,17 @@
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .logo {
+
+    position: absolute;
+    right: 20px; 
+    width: 120px;
+    height: auto;
+}

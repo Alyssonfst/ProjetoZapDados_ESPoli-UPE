@@ -1,11 +1,14 @@
-<div style="display: flex; justify-content: space-around;">
-    <div>
+<div class="head">
+  <h1>Usuários mais ativos por dia e horário</h1>
+  <img src="../../assets/logo-zapdados.jpg" alt="Logo ZapDados" class="logo" />
+</div>  
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+  <div>
       <h2>Uso por Horário do Dia</h2>
       <canvas
         baseChart
         [datasets]="timeOfDayChartData"
         [labels]="timeOfDayChartLabels"
-        [options]="timeOfDayChartOptions"
         [legend]="true"
         [type]="'bar'"
         >
@@ -17,7 +20,6 @@
         baseChart
         [datasets]="dayOfWeekChartData"
         [labels]="dayOfWeekChartLabels"
-        [options]="dayOfWeekChartOptions"
         [legend]="true"
         [type]="'radar'">
       </canvas>
