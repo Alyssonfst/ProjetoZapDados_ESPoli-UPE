@@ -1,1 +1,5 @@
-<p>carregar-arquivo works!</p>
+<div class="upload-container">
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".txt" style="display: none;"/>
+    <label for="fileInput" class="upload-button">Carregar Arquivo</label>
+    <p>Selecione um arquivo .txt exportado da conversa do grupo/comunidade do WhatsApp.</p>
+</div>
