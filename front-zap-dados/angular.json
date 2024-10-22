@@ -29,7 +29,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref" : "/front-zap-dados"
           },
           "configurations": {
             "production": {
@@ -51,7 +52,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref" : "/front-zap-dados"
             },
             "development": {
               "buildOptimizer": false,

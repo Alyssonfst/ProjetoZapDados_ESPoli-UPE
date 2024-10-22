@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/front-zap-dados'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

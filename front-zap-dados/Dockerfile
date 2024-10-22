@@ -25,7 +25,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy from the stahg 1
-COPY --from=builder /app-ui/dist /usr/share/nginx/html
+COPY --from=builder /app-ui/dist /usr/share/nginx/html/front-zap-dados
 
 EXPOSE 4200 80
 
