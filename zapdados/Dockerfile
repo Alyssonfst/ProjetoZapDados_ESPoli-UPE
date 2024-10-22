@@ -8,5 +8,5 @@ RUN mvn clean install -DskipTests
 # Etapa 2: Execução da aplicação
 FROM openjdk:17-jdk-slim
 VOLUME /tmp
-COPY --from=build /target/zapdados*.jar app.jar
+COPY --from=build /app/target/zapdados*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
