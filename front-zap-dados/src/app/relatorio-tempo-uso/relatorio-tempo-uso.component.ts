@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-relatorio-tempo-uso',
@@ -16,6 +17,8 @@ export class RelatorioTempoUsoComponent implements OnInit {
                           '22:00', '23:00'];
 
   dayOfWeekChartLabels = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo'];
+
+  imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg' ;
 
   constructor(private http: HttpClient) {}
 
