@@ -1,32 +1,12 @@
-FROM gru.ocir.io/ida2ybigzy5m/green-jdk17
+# Etapa 1: Build da aplicação
+FROM maven:3.8.5-openjdk-17-slim AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-LABEL APPLICATION="zapdados-back"
-LABEL MAINTAINER="zapdados.com.br <infraestrutura at zapdados.com.br>"
-
-ARG TARGET_APP=target/zapdados*.jar
-ARG DEST_APP=/zapdados/app.jar
-
-ARG TARGET_ENTRYPOINT=entrypoint.sh
-ARG DEST_ENTRYPOINT=/zapdados/entrypoint.sh
-
-# Atualiza a lista de pacotes e instala o iputils-ping
-RUN apt-get update && \
-    apt-get install -y telnet && \
-    apt-get install -y curl && \
-    apt-get install -y traceroute && \
-    apt-get install -y vim && \
-    apt-get install -y iputils-ping && \
-    rm -rf /var/lib/apt/lists/*
-	
-RUN mkdir /zapdados
-
-ENV TZ=America/Recife
-RUN apt-get update && apt-get install tzdata -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-COPY ${TARGET_APP} ${DEST_APP}
-COPY ${TARGET_ENTRYPOINT} ${DEST_ENTRYPOINT}
-
-RUN chmod +x ${DEST_ENTRYPOINT}
-
-CMD ["/zapdados/entrypoint.sh", "run"]
+# Etapa 2: Execução da aplicação
+FROM openjdk:17-jdk-slim
+VOLUME /tmp
+COPY --from=build /target/zapdados*.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
