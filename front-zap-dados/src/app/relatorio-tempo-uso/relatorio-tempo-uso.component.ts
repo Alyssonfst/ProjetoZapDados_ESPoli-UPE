@@ -20,6 +20,9 @@ export class RelatorioTempoUsoComponent implements OnInit {
 
   imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg' ;
 
+
+  private apiUrl = environment.apiUrl; 
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -27,7 +30,7 @@ export class RelatorioTempoUsoComponent implements OnInit {
   }
 
   carregarUsuarios(): void {
-    this.http.get<any[]>('http://localhost:8080/api/tempo-uso/obter-dados-relatorio').subscribe(
+    this.http.get<any[]>(environment.apiUrl+'/api/tempo-uso/obter-dados-relatorio').subscribe(
       (data) => {
         this.usuarios = data;
         this.atualizarGraficos();

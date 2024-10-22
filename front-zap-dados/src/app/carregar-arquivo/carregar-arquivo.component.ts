@@ -1,6 +1,7 @@
 // carregar-arquivo.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-carregar-arquivo',
@@ -11,6 +12,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class CarregarArquivoComponent implements OnInit {
 
   message: string | null = null;
+
+  private apiUrl = environment.apiUrl; 
+  
   selectedFile: File | null = null
   constructor(private http: HttpClient) {}
 
@@ -39,7 +43,7 @@ export class CarregarArquivoComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
 
-      this.http.post('http://localhost:8080/upload', formData).subscribe(
+      this.http.post(environment.apiUrl+'/api/upload/upload', formData).subscribe(
         (response) => {
           console.log('Upload bem-sucedido:', response);
           this.message = 'Upload realizado com sucesso!';
