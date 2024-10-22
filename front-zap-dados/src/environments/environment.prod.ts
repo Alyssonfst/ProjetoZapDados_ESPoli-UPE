@@ -5,5 +5,6 @@
 export const environment = {
   production: false,
   url_service: "http://www.zapdados.com.br/api/",
-  base_href: "front-zap-dados"
+  base_href: "front-zap-dados",
+  apiUrl: 'http://www.zapdados.com.br/back/'
 };

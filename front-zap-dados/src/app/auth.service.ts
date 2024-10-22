@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +11,16 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
   
   
-
   constructor(private router: Router, private http: HttpClient) { }
-/*
-  login(username: string, password: string): boolean {
-    if ( username === 'admin' && password === 'admin') {
-      sessionStorage.setItem('isLoggedIn', 'true');
-      return true;
-    }
-    return false;
-  }
-    */
-  private apiUrl = 'http://localhost:8080/login/login'; 
+
+
+  private apiUrl = environment.apiUrl;  // Usar a URL do environment
 
   login(username: string, password: string): Observable<any> {
     const body = { username, password }; // Criando o corpo da requisição
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post(this.apiUrl, body, { headers });
+    return this.http.post(this.apiUrl+'login/login', body, { headers });
   }
 
   logout(): void {

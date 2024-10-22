@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Relatório de Expressões Mais Utilizadas</h2>
+    
+    <!-- Botão de upload do arquivo -->
+    <input type="file" (change)="onFileSelected($event)" accept=".txt" />
+    
+    <div *ngIf="wordCounts.length > 0">
+      <h3>Expressões mais frequentes:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Expressão</th>
+            <th>Frequência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let word of wordCounts">
+            <td>{{ word.word }}</td>
+            <td>{{ word.count }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
