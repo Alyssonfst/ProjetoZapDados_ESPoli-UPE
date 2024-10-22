@@ -1,0 +1,36 @@
+/* Estilos gerais */
+html, body {
+    height: 100%; /* Garante que o corpo ocupe toda a altura da tela */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  /* Container principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra os elementos para os extremos */
+    height: 100%; /* Ocupa toda a altura da tela */
+    width: 100%; /* Opcional, pode ajustar se necessário */
+    text-align: center; /* Centraliza o texto do título */
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .logo {
+
+    position: absolute;
+    right: 20px; 
+    width: 120px;
+    height: auto;
+}
