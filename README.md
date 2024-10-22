@@ -19,12 +19,11 @@ Nosso projeto visa fornecer insights valiosos através de dashboards e relatóri
 - Dashboards intuitivos: Visualize os dados de forma clara e concisa. 
 - Relatórios personalizados: Gere relatórios sob demanda para analisar dados específicos.
 
-### Concorrê cias e referências:
+### Concorrentes e referências:
 - WhatAnalyze: https://whatsanalyze.com/ e https://github.com/SpiritFour/whatsanalyze
 - Solução experimental brasileira: https://daltonbc.shinyapps.io/whatsapp/
 - Brevo: https://brevo.com
 - Meu Grupo Vip: https://meugrupovip.com.br/
-
 
 ### Integrantes:
 - Alysson Tavares - Back-end
