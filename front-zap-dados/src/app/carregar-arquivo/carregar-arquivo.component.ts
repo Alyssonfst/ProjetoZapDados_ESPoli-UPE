@@ -29,6 +29,7 @@ export class CarregarArquivoComponent implements OnInit {
       if (fileExtension === 'txt') {
         this.message = 'Arquivo selecionado com sucesso!';
         this.selectedFile = file
+        this.onUpload()
 
 
       } else {
@@ -43,7 +44,7 @@ export class CarregarArquivoComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
 
-      this.http.post(environment.apiUrl+'/api/upload/upload', formData).subscribe(
+      this.http.post( environment.apiUrl + 'api/upload/txt-file', formData).subscribe(
         (response) => {
           console.log('Upload bem-sucedido:', response);
           this.message = 'Upload realizado com sucesso!';
