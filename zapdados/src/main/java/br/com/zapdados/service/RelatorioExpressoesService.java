@@ -1,10 +1,8 @@
 package br.com.zapdados.service;
 
 import edu.stanford.nlp.pipeline.*;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
