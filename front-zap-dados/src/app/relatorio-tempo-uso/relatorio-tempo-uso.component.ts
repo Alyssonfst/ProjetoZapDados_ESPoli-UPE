@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-relatorio-tempo-uso',
@@ -17,6 +18,11 @@ export class RelatorioTempoUsoComponent implements OnInit {
 
   dayOfWeekChartLabels = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo'];
 
+  imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg' ;
+
+
+  private apiUrl = environment.apiUrl; 
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -24,7 +30,7 @@ export class RelatorioTempoUsoComponent implements OnInit {
   }
 
   carregarUsuarios(): void {
-    this.http.get<any[]>('http://localhost:8080/api/tempo-uso/obter-dados-relatorio').subscribe(
+    this.http.get<any[]>(environment.apiUrl+'/api/tempo-uso/obter-dados-relatorio').subscribe(
       (data) => {
         this.usuarios = data;
         this.atualizarGraficos();
