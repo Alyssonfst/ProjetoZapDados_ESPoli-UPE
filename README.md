@@ -12,8 +12,13 @@ Esta solução está sendo criada como atividade da disciplina de Engenharia de 
 
 Nosso projeto visa fornecer insights valiosos através de dashboards e relatórios personalizados, permitindo que os gestores:
 - Compreendam o comportamento da comunidade: Identifique os membros mais ativos, os horários de pico e os temas mais discutidos.
-- Avaliem o engajamento: Meça o número de mensagens, reações e a participação dos membros.
+- Avaliem o engajamento, medindo o número de mensagens, reações e a participação dos membros.
 - Tomem decisões estratégicas: Utilize os dados para otimizar o conteúdo e melhorar a experiência dos usuários.
+
+### Tecnologias utilizadas:
+- Front-End: Angular
+- Back-End: Java Spring
+- Banco de dados: H2
 
 ### Funcionalidades em desenvolvimento:
 - Dashboards intuitivos: Visualize os dados de forma clara e concisa. 
