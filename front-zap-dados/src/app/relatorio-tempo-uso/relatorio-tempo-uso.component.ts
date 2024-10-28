@@ -30,7 +30,7 @@ export class RelatorioTempoUsoComponent implements OnInit {
   }
 
   carregarUsuarios(): void {
-    this.http.get<any[]>(environment.apiUrl+'/api/tempo-uso/obter-dados-relatorio').subscribe(
+    this.http.get<any[]>(environment.apiUrl+'api/tempo-uso/obter-dados-relatorio').subscribe(
       (data) => {
         this.usuarios = data;
         this.atualizarGraficos();
