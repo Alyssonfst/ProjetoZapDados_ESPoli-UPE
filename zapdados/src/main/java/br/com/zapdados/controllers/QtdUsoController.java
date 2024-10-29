@@ -22,6 +22,10 @@ public class QtdUsoController {
     // Armazenando as mensagens processadas do controlador POST
     private static List<TxtResponse> storedTxtResponses;
 
+    public static List<TxtResponse> getStoredTxtResponses() {
+        return storedTxtResponses;
+    }
+
     // Método para receber o TxtResponse do controlador POST
     public static void storeTxtResponses(List<TxtResponse> txtResponses) {
         storedTxtResponses = txtResponses;

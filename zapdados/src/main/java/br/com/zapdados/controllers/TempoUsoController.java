@@ -1,54 +1,35 @@
 package br.com.zapdados.controllers;
 
-import br.com.zapdados.model.QtdUso;
-import java.util.ArrayList;
+import br.com.zapdados.model.TempoUso;
+import br.com.zapdados.model.TxtResponse;
+import br.com.zapdados.service.TempoUsoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import br.com.zapdados.model.TempoUsoDados;
-
 @RestController
-@RequestMapping("/api/tempo-uso")
+@RequestMapping("/api/tempo")
 public class TempoUsoController {
-    
-    @GetMapping("/obter-dados-relatorio")
-    public ResponseEntity<List<TempoUsoDados>> obterDadosRelatorio() {
-        
 
-        // mock de exemplo de retorno
+    @Autowired
+    private TempoUsoService tempoUsoService;
 
-        List<TempoUsoDados> temposDeUso = new ArrayList<>();
-        
-        TempoUsoDados t1 = new TempoUsoDados();
-        t1.setAno(2024);
-        t1.setDia(10);
-        t1.setDiaSemana("Quinta-Feira");
-        t1.setHoraDoDia(17);
-        t1.setMes(10);
-        
-        List<QtdUso> qtdsUso =  new ArrayList<>();
-        QtdUso qtdUso1 = new QtdUso();
-        qtdUso1.setQuantidadeMensagens(25);
-        qtdUso1.setUsername("joao");
-        qtdsUso.add(qtdUso1);
-        
-        QtdUso qtdUso2 = new QtdUso();
-        
-        qtdUso2.setQuantidadeMensagens(50);
-        qtdUso2.setUsername("maria");
-        
-        qtdsUso.add(qtdUso1);
-        qtdsUso.add(qtdUso2);
-        
-        t1.setQtdUso(qtdsUso);
+    // Endpoint para obter o uso de tempo por usuário
+    @GetMapping("/obter-tempo-uso")
+    public ResponseEntity<List<TempoUso>> getUserTimeUsage() {
+        // Obter as respostas armazenadas do controlador QtdUsoController
+        List<TxtResponse> txtResponses = QtdUsoController.getStoredTxtResponses();
 
-        //temposDeUso.add(new )
-        
-        temposDeUso.add(t1);
+        if (txtResponses == null || txtResponses.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        }
 
-        return new ResponseEntity<>(temposDeUso, HttpStatus.OK);
+        // Calcula o uso de tempo
+        List<TempoUso> tempoUsos = tempoUsoService.calculateUserTimeUsage(txtResponses);
+        return ResponseEntity.ok(tempoUsos);
     }
 }
