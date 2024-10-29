@@ -32,7 +32,7 @@ public class UploadTxtController {
 
                List<TxtResponse> response = txtService.parseTxt(rawlines);
 
-
+                QtdUsoController.storeTxtResponses(response);
 
                return ResponseEntity.ok(response);
            } catch (Exception e){
