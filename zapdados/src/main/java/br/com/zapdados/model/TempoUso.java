@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class TempoUsoDados {
+public class TempoUso {
     private int horaDoDia;
     private String diaSemana;
     private int dia;
