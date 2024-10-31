@@ -1,3 +1,0 @@
-2024-10-31 16:34:13.643785-03:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Value too long for column "ARQUIVO BINARY VARYING(255)": "X'32342f30392f323032342031333a3138202d204173206d656e736167656e732065206173206c69... (60463)"; SQL statement:
-update usuario set arquivo=?,password=? where username=? [22001-224]
