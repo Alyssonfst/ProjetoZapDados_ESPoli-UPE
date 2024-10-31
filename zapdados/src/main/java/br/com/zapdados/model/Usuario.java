@@ -2,6 +2,7 @@ package br.com.zapdados.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -26,4 +27,6 @@ public class Usuario {
     @Id
     private String username;
     private String password;
+    @Lob
+    private byte[] arquivo;
 }

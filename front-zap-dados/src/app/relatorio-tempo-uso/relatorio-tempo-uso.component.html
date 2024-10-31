@@ -1,7 +1,29 @@
 <div class="head">
   <h1>Usuários mais ativos por dia e horário</h1>
   <img src="{{imagem}}"  alt="Logo ZapDados" class="logo" />
-</div>  
+</div> 
+
+<div class="filtro">
+  <div class="search-container">
+    <input 
+      type="text"
+      placeholder="Buscar Usuários" 
+      [(ngModel)]="searchTerm"
+      (input)="onSearch($event)"
+      class="search-input"
+    >
+  </div>
+  <div class="select-container">
+    <label for="userFilter">Filtrar por usuário: </label>
+    <select id="userFilter" [(ngModel)]="selectedUser" (change)="onFilterChange(selectedUser)">
+      <option value="all">Todos</option>
+      <option *ngFor="let user of filteredUsersList" [value]="user">
+        {{user}}
+      </option>
+    </select>
+  </div>
+</div>
+
 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
   <div>
       <h2>Uso por Horário do Dia</h2>
