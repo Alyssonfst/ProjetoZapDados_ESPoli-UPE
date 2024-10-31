@@ -34,7 +34,7 @@ public class UrlListingListener implements ApplicationListener<ApplicationReadyE
     
     private void addUsers() {
         if (!repository.existsById("admin")) {
-            repository.save(new Usuario("admin", "admin"));
+            repository.save(new Usuario("admin", "admin", null));
         }
     }
 }
