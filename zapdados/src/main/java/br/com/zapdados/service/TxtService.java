@@ -4,6 +4,7 @@ import br.com.zapdados.model.Txt;
 import br.com.zapdados.model.TxtResponse;
 import org.springframework.stereotype.Service;
 
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class TxtService {
                 Txt txt = new Txt(dateTime, texto);
 
                 userTxtMap.computeIfAbsent(usuario, k -> new ArrayList<>()).add(txt);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (DateTimeException e) {
+                System.out.println("linha ignorada, formato inválido" + line);;
             }
         }
 
