@@ -30,19 +30,21 @@ public class TempoUsoService {
                         .computeIfAbsent(usuario, k -> new HashMap<>())
                         .computeIfAbsent(key, k -> new TempoUso(horaDoDia, diaSemana, dia, mes, ano, new ArrayList<>()));
 
-                // Adiciona ou atualiza a contagem de mensagens
-                boolean found = false;
-                for (QtdUso uso : tempoUso.getQtdUso()) {
-                    if (uso.getUsername().equals(usuario)) {
-                        uso.setQuantidadeMensagens(uso.getQuantidadeMensagens() + 1); // Incrementa a contagem
-                        found = true; // Marca que o usuário foi encontrado
-                        break;
-                    }
-                }
+                QtdUso qtdUso = tempoUso.getQtdUso()
+                        .stream()
+                        .filter(uso -> uso.getUsername().equals(usuario))
+                        .findFirst()
+                        .orElseGet(() -> {
+                            QtdUso novoUso = new QtdUso(usuario, 0);
+                            tempoUso.getQtdUso().add(novoUso);
+                            return novoUso;
+                        });
 
-                if (!found) {
-                    tempoUso.getQtdUso().add(new QtdUso(usuario, 1)); // Adiciona um novo QtdUso
-                }
+                        
+                // Adiciona ou atualiza a contagem de mensagens
+                qtdUso.setQuantidadeMensagens(qtdUso.getQuantidadeMensagens() + 1);;
+                
+
             }
         }
 
