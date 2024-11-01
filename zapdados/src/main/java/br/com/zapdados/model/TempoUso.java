@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
 import lombok.ToString;
 
 @Getter
@@ -22,5 +21,17 @@ public class TempoUso {
     private int dia;
     private int mes;
     private int ano;
-    private List<QtdUso> qtdUso;
+    private int qntMensagens;
+
+    public TempoUso(int horaDoDia, String diaSemana, int dia, int mes, int ano) {
+        this.horaDoDia = horaDoDia;
+        this.diaSemana = diaSemana;
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.qntMensagens = 0;
+    }
+    public void addQntMensagens(){
+        this.qntMensagens++;
+    }
 }

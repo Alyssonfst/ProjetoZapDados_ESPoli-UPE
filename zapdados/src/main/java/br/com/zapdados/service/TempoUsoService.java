@@ -1,8 +1,9 @@
 package br.com.zapdados.service;
 
-import br.com.zapdados.model.QtdUso;
 import br.com.zapdados.model.TempoUso;
 import br.com.zapdados.model.TxtResponse;
+import br.com.zapdados.model.UsuarioTempoUso;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,8 +12,8 @@ import java.util.*;
 @Service
 public class TempoUsoService {
 
-    public List<TempoUso> calculateUserTimeUsage(List<TxtResponse> txtResponses) {
-        Map<String, Map<String, TempoUso>> userTimeMap = new HashMap<>();
+    public List<UsuarioTempoUso> calculateUserTimeUsage(List<TxtResponse> txtResponses) {
+        Map<String, UsuarioTempoUso> userTimeMap = new HashMap<>();
 
         for (TxtResponse response : txtResponses) {
             String usuario = response.getUsuario();
@@ -24,36 +25,39 @@ public class TempoUsoService {
                 int mes = dateTime.getMonthValue();
                 int ano = dateTime.getYear();
 
-                String key = String.format("%d-%02d-%02d", ano, mes, dia);
+                // Criação de um objeto TempoUso temporário
+                TempoUso tempoUsoTemp = new TempoUso(horaDoDia, diaSemana, dia, mes, ano);
 
-                TempoUso tempoUso = userTimeMap
-                        .computeIfAbsent(usuario, k -> new HashMap<>())
-                        .computeIfAbsent(key, k -> new TempoUso(horaDoDia, diaSemana, dia, mes, ano, new ArrayList<>()));
+                // Usa computeIfAbsent para criar ou obter o usuário
+                UsuarioTempoUso usuarioTempoUso = userTimeMap.computeIfAbsent(usuario, k ->
+                    UsuarioTempoUso.builder()
+                                   .username(k)
+                                   .temposUso(new ArrayList<>()) // Inicializa a lista
+                                   .build()
+                );
 
-                QtdUso qtdUso = tempoUso.getQtdUso()
+                // Verifica se já existe um TempoUso para o mesmo dia e hora
+                Optional<TempoUso> tempoUsoExistente = usuarioTempoUso.getTemposUso()
                         .stream()
-                        .filter(uso -> uso.getUsername().equals(usuario))
-                        .findFirst()
-                        .orElseGet(() -> {
-                            QtdUso novoUso = new QtdUso(usuario, 0);
-                            tempoUso.getQtdUso().add(novoUso);
-                            return novoUso;
-                        });
+                        .filter(tempoUso -> tempoUso.getHoraDoDia() == horaDoDia &&
+                                            tempoUso.getDia() == dia &&
+                                            tempoUso.getMes() == mes &&
+                                            tempoUso.getAno() == ano)
+                        .findFirst();
 
-                        
-                // Adiciona ou atualiza a contagem de mensagens
-                qtdUso.setQuantidadeMensagens(qtdUso.getQuantidadeMensagens() + 1);;
-                
-
+                if (tempoUsoExistente.isPresent()) {
+                    // Se existir, incrementa a contagem de mensagens
+                    tempoUsoExistente.get().addQntMensagens();
+                } else {
+                    // Se não existir, adiciona o novo TempoUso à lista
+                    usuarioTempoUso.addTempoUso(tempoUsoTemp);
+                    // Inicializa a contagem de mensagens para esse TempoUso
+                    tempoUsoTemp.addQntMensagens();
+                }
             }
         }
 
         // Converte o mapa em uma lista
-        List<TempoUso> tempoUsos = new ArrayList<>();
-        for (Map<String, TempoUso> userMap : userTimeMap.values()) {
-            tempoUsos.addAll(userMap.values());
-        }
-
-        return tempoUsos;
+        return new ArrayList<>(userTimeMap.values());
     }
 }
