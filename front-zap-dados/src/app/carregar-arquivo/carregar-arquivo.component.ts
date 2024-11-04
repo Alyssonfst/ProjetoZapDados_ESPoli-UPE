@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
+import { FileUploadService } from '../file-upload.service';
 @Component({
   selector: 'app-carregar-arquivo',
   templateUrl: './carregar-arquivo.component.html',
@@ -16,7 +16,10 @@ export class CarregarArquivoComponent implements OnInit {
   private apiUrl = environment.apiUrl; 
   
   selectedFile: File | null = null
-  constructor(private http: HttpClient) {}
+  
+  constructor(private http: HttpClient,
+  private fileUploadService: FileUploadService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -48,6 +51,8 @@ export class CarregarArquivoComponent implements OnInit {
         (response) => {
           console.log('Upload bem-sucedido:', response);
           this.message = 'Upload realizado com sucesso!';
+          this.fileUploadService.setFileUploaded(true); // Chamando o método do serviço corretamente
+
         },
         (error: HttpErrorResponse) => {
           console.error('Erro ao enviar o arquivo:', error);

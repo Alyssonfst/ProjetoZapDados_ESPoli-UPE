@@ -59,6 +59,7 @@ button {
     border-radius: 4px; /* Bordas arredondadas */
     cursor: pointer; /* Muda o cursor ao passar sobre o botão */
     transition: background-color 0.3s; /* Transição suave para o hover */
+    margin-bottom: 30px;
 }
 
 button:hover {

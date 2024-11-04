@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { FiltroComponentComponent } from './filtro-component/filtro-component.component';
+import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { APP_BASE_HREF } from '@angular/common';
     RelatorioExpressoesUsadasComponent,
     LoginComponent,
     HomeComponent,
-    CarregarArquivoComponent
+    CarregarArquivoComponent,
+    FiltroComponentComponent,
+    IntroducaoComponentComponent
   ],
   imports: [
     BrowserModule,
