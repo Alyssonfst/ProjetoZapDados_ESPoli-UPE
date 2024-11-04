@@ -1,0 +1,28 @@
+<!-- filtro-component.component.html -->
+<div class="filter-search-container">
+    <div class="search-bar">
+      <input 
+        type="text" 
+        [placeholder]="placeholder"
+        (input)="onSearchChange($event)"
+        class="search-input"
+      >
+    </div>
+    <div class="filter-buttons">
+      <button 
+        (click)="onFilterChange('all')"
+        [class.active]="selectedUser === 'all'"
+        class="filter-btn">
+        Todos
+      </button>
+      <!-- Only show user buttons when there's a search term -->
+      <button 
+        *ngFor="let user of getFilteredUsers()"
+        (click)="onFilterChange(user)"
+        [class.active]="selectedUser === user"
+        class="filter-btn">
+        {{user}}
+      </button>
+    </div>
+  </div>
+  

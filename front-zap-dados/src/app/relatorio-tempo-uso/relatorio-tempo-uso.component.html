@@ -1,28 +1,35 @@
 <div class="head">
   <h1>Usuários mais ativos por dia e horário</h1>
-  <img src="{{imagem}}"  alt="Logo ZapDados" class="logo" />
-</div>  
+  <img src="{{imagem}}" alt="Logo ZapDados" class="logo" />
+</div>
+
+<app-filtro-component
+  [uniqueUsers]="uniqueUsers"
+  [selectedUser]="selectedUser"
+  (filterChange)="handleFilterChange($event)"
+  (searchChange)="handleSearch($event)">
+</app-filtro-component>
+
+
 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
   <div>
-      <h2>Uso por Horário do Dia</h2>
-      <canvas
-        baseChart
-        [datasets]="timeOfDayChartData"
-        [labels]="timeOfDayChartLabels"
-        [legend]="true"
-        [type]="'bar'"
-        >
-      </canvas>
-    </div>
-    <div>
-      <h2>Uso por Dia da Semana</h2>
-      <canvas
-        baseChart
-        [datasets]="dayOfWeekChartData"
-        [labels]="dayOfWeekChartLabels"
-        [legend]="true"
-        [type]="'radar'">
-      </canvas>
-    </div>
+    <h2>Uso por Horário do Dia</h2>
+    <canvas
+      baseChart
+      [datasets]="timeOfDayChartData"
+      [labels]="timeOfDayChartLabels"
+      [legend]="true"
+      [type]="'bar'">
+    </canvas>
   </div>
-  
+  <div>
+    <h2>Uso por Dia da Semana</h2>
+    <canvas
+      baseChart
+      [datasets]="dayOfWeekChartData"
+      [labels]="dayOfWeekChartLabels"
+      [legend]="true"
+      [type]="'radar'">
+    </canvas>
+  </div>
+</div>

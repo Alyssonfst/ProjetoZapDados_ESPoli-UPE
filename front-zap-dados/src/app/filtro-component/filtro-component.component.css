@@ -1,0 +1,37 @@
+.filter-search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .filter-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  

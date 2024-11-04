@@ -1,54 +1,55 @@
 package br.com.zapdados.controllers;
 
-import br.com.zapdados.model.QtdUso;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
+import br.com.zapdados.model.TempoUso;
+import br.com.zapdados.model.TxtResponse;
+import br.com.zapdados.model.UsuarioTempoUso;
+import br.com.zapdados.service.IUsuarioService;
+import br.com.zapdados.service.TempoUsoService;
+import br.com.zapdados.service.TxtService;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zapdados.model.TempoUsoDados;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/tempo-uso")
+@RequestMapping("/api/tempo")
 public class TempoUsoController {
+
+    @Autowired
+    private TempoUsoService tempoUsoService;
     
-    @GetMapping("/obter-dados-relatorio")
-    public ResponseEntity<List<TempoUsoDados>> obterDadosRelatorio() {
-        
+    @Autowired
+    private IUsuarioService usuarioService;
+    
+    @Autowired
+    private TxtService txtService;
 
-        // mock de exemplo de retorno
+    // Endpoint para obter o uso de tempo por usuário
+    @GetMapping("/obter-tempo-uso")
+    public ResponseEntity<List<UsuarioTempoUso>> getUserTimeUsage() {
+    // Obter as respostas armazenadas do controlador QtdUsoController
+    byte[] arquivo = usuarioService.obterArquivo("admin");
 
-        List<TempoUsoDados> temposDeUso = new ArrayList<>();
-        
-        TempoUsoDados t1 = new TempoUsoDados();
-        t1.setAno(2024);
-        t1.setDia(10);
-        t1.setDiaSemana("Quinta-Feira");
-        t1.setHoraDoDia(17);
-        t1.setMes(10);
-        
-        List<QtdUso> qtdsUso =  new ArrayList<>();
-        QtdUso qtdUso1 = new QtdUso();
-        qtdUso1.setQuantidadeMensagens(25);
-        qtdUso1.setUsername("joao");
-        qtdsUso.add(qtdUso1);
-        
-        QtdUso qtdUso2 = new QtdUso();
-        
-        qtdUso2.setQuantidadeMensagens(50);
-        qtdUso2.setUsername("maria");
-        
-        qtdsUso.add(qtdUso1);
-        qtdsUso.add(qtdUso2);
-        
-        t1.setQtdUso(qtdsUso);
+    List<String> rawlines = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(arquivo), StandardCharsets.UTF_8))
+                   .lines()
+                   .collect(Collectors.toList());
 
-        //temposDeUso.add(new )
-        
-        temposDeUso.add(t1);
+    List<TxtResponse> txtResponses = txtService.parseTxt(rawlines);
 
-        return new ResponseEntity<>(temposDeUso, HttpStatus.OK);
+    if (txtResponses == null || txtResponses.isEmpty()) {
+        return ResponseEntity.noContent().build(); 
+    }
+
+    // Calcula o uso de tempo
+    List<UsuarioTempoUso> usuarioTemposUsos = tempoUsoService.calculateUserTimeUsage(txtResponses);
+    return ResponseEntity.ok(usuarioTemposUsos);
     }
 }

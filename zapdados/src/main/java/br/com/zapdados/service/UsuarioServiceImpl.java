@@ -21,4 +21,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
         
         return usuario!=null && usuario.getPassword().equals(pass);
     }
+    
+    @Override
+    public void salvarArquivo(byte[] arquivo) {
+        Usuario usuario = repository.findById("admin").get();
+        usuario.setArquivo(arquivo);
+        repository.save(usuario);
+    }
+    
+    @Override
+    public byte[] obterArquivo(String user) {
+        return repository.findById("admin").get().getArquivo();
+    }
 }

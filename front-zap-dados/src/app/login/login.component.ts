@@ -38,4 +38,8 @@ export class LoginComponent {
         }
       });
     }
+
+    navigateToIntroducao(): void {
+      this.router.navigate(['/introducao']);
+    }
 }
