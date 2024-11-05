@@ -1,5 +1,8 @@
 package br.com.zapdados.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -22,6 +25,7 @@ public class TempoUso {
     private int mes;
     private int ano;
     private int qntMensagens;
+    private List<String> mensagens = new ArrayList<>();
 
     public TempoUso(int horaDoDia, String diaSemana, int dia, int mes, int ano) {
         this.horaDoDia = horaDoDia;
@@ -33,5 +37,9 @@ public class TempoUso {
     }
     public void addQntMensagens(){
         this.qntMensagens++;
+    }
+
+    public void addMensagem(String mensagem){
+        this.mensagens.add(mensagem);
     }
 }

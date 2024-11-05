@@ -1,6 +1,5 @@
 package br.com.zapdados.controllers;
 
-import br.com.zapdados.model.TempoUso;
 import br.com.zapdados.model.TxtResponse;
 import br.com.zapdados.model.UsuarioTempoUso;
 import br.com.zapdados.service.IUsuarioService;

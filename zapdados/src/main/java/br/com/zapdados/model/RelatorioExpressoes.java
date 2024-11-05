@@ -1,7 +1,6 @@
 package br.com.zapdados.model;
 
 import java.util.Map;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
