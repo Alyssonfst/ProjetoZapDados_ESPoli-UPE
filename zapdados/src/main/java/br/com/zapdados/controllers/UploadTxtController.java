@@ -2,7 +2,6 @@ package br.com.zapdados.controllers;
 
 import br.com.zapdados.model.TxtResponse;
 import br.com.zapdados.service.IUsuarioService;
-import br.com.zapdados.service.TxtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/upload")
 public class UploadTxtController {
-
-        @Autowired
-        private TxtService txtService;
         
         @Autowired
         private IUsuarioService usuarioService;

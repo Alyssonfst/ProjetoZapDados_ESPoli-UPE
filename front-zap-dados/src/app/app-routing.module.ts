@@ -7,14 +7,16 @@ import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
+import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona a raiz para 'home'
+  { path: '', redirectTo: '/introducao', pathMatch: 'full' }, // Redireciona a raiz para 'home'
   { path: 'login', component: LoginComponent },
   { path: 'relatorio-tempo-uso', component: RelatorioTempoUsoComponent, canActivate: [AuthGuard] },
   { path: 'relatorio-expressoes-usadas', component: RelatorioExpressoesUsadasComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'carregar-arquivo', component: CarregarArquivoComponent, canActivate: [AuthGuard]},
+  { path: 'introducao', component: IntroducaoComponentComponent}
 ];
 
 @NgModule({

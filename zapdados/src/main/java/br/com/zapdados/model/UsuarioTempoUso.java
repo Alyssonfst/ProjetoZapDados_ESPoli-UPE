@@ -1,7 +1,6 @@
 package br.com.zapdados.model;
 
-import java.util.Map;
-
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,8 +16,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class RelatorioExpressoes {
-     private String username;
-     private Map<String, Integer> expressoes;
+public class UsuarioTempoUso {
+    private String username;
+    private List<TempoUso> temposUso;
 
+    public void addTempoUso(TempoUso tempoUso){
+        this.temposUso.add(tempoUso);
+    }
 }
