@@ -28,7 +28,9 @@ public class RegistroEntradaSaidaService {
                 // Verifica se é uma entrada ou saída e incrementa a contagem correspondente
                 if (texto.contains("entrou usando o link de convite deste grupo")) {
                     registro.addEntradas();
-                } else if (texto.contains("saiu")) {
+                } else if (texto.contains("entrou neste grupo através da comunidade")) {
+                    registro.addEntradas();
+                }else if (texto.contains("saiu") && !texto.matches(".*:\\s.*")) {
                     registro.addSaidas();
                 }
 
