@@ -5,7 +5,7 @@
     <a routerLink="/relatorio-tempo-uso" *ngIf="isReportsVisible()">Relatório de Tempo de Uso</a>
     <a routerLink="/relatorio-expressoes-usadas" *ngIf="isReportsVisible()">Relatório de Expressões mais Usadas</a>
     <a routerLink="#" (click)="logout(); $event.preventDefault();" class="logout">Sair</a> 
-
+    <a routerLink="/fluxo-de-pessoas" *ngIf="isReportsVisible()">Relatório do fluxo de pessoas</a>
 </div>
 
 <div class="conteudo">
