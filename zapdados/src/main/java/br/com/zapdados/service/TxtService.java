@@ -32,14 +32,21 @@ public class TxtService {
                     continue;
                 }
 
-                String[] userAndText = dateAndRest[1].split(": ", 2);
-                if (userAndText.length < 2) {
-                    continue;
-                }
+                
 
                 LocalDateTime dateTime = LocalDateTime.parse(dateAndRest[0], DATE_FORMAT);
-                String usuario = userAndText[0];
-                String texto = userAndText[1];
+                String texto = dateAndRest[1].trim();
+
+                String usuario = "";
+                if (texto.contains(": ")){
+                    String[] userAndText = texto.split(": ", 2);
+                    if (userAndText.length == 2){
+                        usuario = userAndText[0].trim();
+                        texto = userAndText[1];
+                    }
+                } else {
+                    usuario = texto.split(" ")[0];
+                }
 
                 Txt txt = new Txt(dateTime, texto);
 
