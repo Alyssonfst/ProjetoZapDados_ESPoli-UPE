@@ -23,7 +23,6 @@ export class FluxoDePessoasComponent implements OnInit {
   ngOnInit(): void {
     
     this.carregarEntradaSaida()
-    this.atualizarGraficos()
   }
 
   carregarEntradaSaida(): void {
@@ -32,6 +31,7 @@ export class FluxoDePessoasComponent implements OnInit {
       (data) => {
         console.log('Dados carregados:', data);
         this.EntradaSaidas = data;
+        this.atualizarGraficos();
       },
       (error) => {
         console.error('Erro ao carregar usuários:', error);

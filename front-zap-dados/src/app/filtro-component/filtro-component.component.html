@@ -10,6 +10,7 @@
     </div>
     <div class="filter-buttons">
       <button 
+        *ngIf="showAllOption"
         (click)="onFilterChange('all')"
         [class.active]="selectedUser === 'all'"
         class="filter-btn">

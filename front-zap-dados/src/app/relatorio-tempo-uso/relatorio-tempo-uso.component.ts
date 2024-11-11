@@ -23,7 +23,7 @@ export class RelatorioTempoUsoComponent implements OnInit {
     '22:00', '23:00'];
     
   dayOfWeekChartLabels = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
-  imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg';
+  imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png';
 
   private apiUrl = environment.apiUrl;
 

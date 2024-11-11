@@ -18,6 +18,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FiltroComponentComponent } from './filtro-component/filtro-component.component';
 import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
 import { FluxoDePessoasComponent } from './fluxo-de-pessoas/fluxo-de-pessoas.component';
+import { RelatorioUltimasMensagensComponent } from './relatorio-ultimas-mensagens/relatorio-ultimas-mensagens.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FluxoDePessoasComponent } from './fluxo-de-pessoas/fluxo-de-pessoas.com
     CarregarArquivoComponent,
     FiltroComponentComponent,
     IntroducaoComponentComponent,
-    FluxoDePessoasComponent
+    FluxoDePessoasComponent,
+    RelatorioUltimasMensagensComponent
   ],
   imports: [
     BrowserModule,

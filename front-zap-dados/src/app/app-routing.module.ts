@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
 import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
 import { FluxoDePessoasComponent } from './fluxo-de-pessoas/fluxo-de-pessoas.component';
+import { RelatorioUltimasMensagensComponent } from './relatorio-ultimas-mensagens/relatorio-ultimas-mensagens.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/introducao', pathMatch: 'full' }, // Redireciona a raiz para 'home'
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'carregar-arquivo', component: CarregarArquivoComponent, canActivate: [AuthGuard]},
   { path: 'introducao', component: IntroducaoComponentComponent},
-  { path: 'fluxo-de-pessoas', component: FluxoDePessoasComponent, canActivate: [AuthGuard]}
+  { path: 'fluxo-de-pessoas', component: FluxoDePessoasComponent, canActivate: [AuthGuard]},
+  { path: 'relatorio-ultimas-mensagens', component: RelatorioUltimasMensagensComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

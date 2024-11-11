@@ -9,6 +9,7 @@ export class FiltroComponentComponent implements OnInit {
   @Input() uniqueUsers: string[] = [];
   @Input() selectedUser: string = 'all';
   @Input() placeholder: string = 'Buscar usuários';
+  @Input() showAllOption: boolean = true;
 
   @Output() filterChange = new EventEmitter<string>();
   @Output() searchChange = new EventEmitter<string>();
