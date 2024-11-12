@@ -50,13 +50,13 @@ export class CarregarArquivoComponent implements OnInit {
       this.http.post( environment.apiUrl + 'api/upload/txt-file', formData).subscribe(
         (response) => {
           console.log('Upload bem-sucedido:', response);
-          this.message = 'Upload realizado com sucesso!';
+          this.message = 'Upload realizado com sucesso! Agora você pode navegar pelos relatórios pela barra de navegação.';
           this.fileUploadService.setFileUploaded(true); // Chamando o método do serviço corretamente
 
         },
         (error: HttpErrorResponse) => {
           console.error('Erro ao enviar o arquivo:', error);
-          this.message = 'Erro ao enviar o arquivo!';
+          this.message = 'Erro ao enviar o arquivo! Atualize a página e tente novamente.';
         }
       );
     } else {

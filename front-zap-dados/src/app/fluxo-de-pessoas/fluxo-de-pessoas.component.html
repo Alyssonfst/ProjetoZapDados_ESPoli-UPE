@@ -1,0 +1,21 @@
+<div class="componente-graficos">
+    <h3>Fluxo de Entradas e Saídas por Mês</h3>
+
+    <div class="graficos">
+        <canvas 
+        baseChart 
+        [datasets]="entradaChartData"
+        [labels]="mesChartLabels"
+        [type]="'bar'"
+        [options]="{ responsive: true }">
+</canvas>
+<canvas 
+        baseChart 
+        [datasets]="saidaChartData"
+        [labels]="mesChartLabels"
+        [type]="'bar'"
+        [options]="{ responsive: true }">
+</canvas>
+    </div>
+  </div>
+  

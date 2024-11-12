@@ -29,8 +29,9 @@ html, body {
   
   .logo {
 
-    position: absolute;
-    right: 20px; 
+    display: flex;
+    justify-content: center;
+    margin: auto;
     width: 120px;
     height: auto;
 }

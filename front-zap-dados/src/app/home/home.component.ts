@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg' ;
+  imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png' ;
 
   ngOnInit(): void {
   }

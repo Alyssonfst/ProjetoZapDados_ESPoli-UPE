@@ -24,6 +24,7 @@ public class TempoUsoService {
                 int dia = dateTime.getDayOfMonth();
                 int mes = dateTime.getMonthValue();
                 int ano = dateTime.getYear();
+                String textoMensagem = mensagem.getMensagem();
 
                 // Criação de um objeto TempoUso temporário
                 TempoUso tempoUsoTemp = new TempoUso(horaDoDia, diaSemana, dia, mes, ano);
@@ -46,13 +47,14 @@ public class TempoUsoService {
                         .findFirst();
 
                 if (tempoUsoExistente.isPresent()) {
-                    // Se existir, incrementa a contagem de mensagens
+                    // Se existir, incrementa a contagem de mensagens e adiciona o texto da mensagem
                     tempoUsoExistente.get().addQntMensagens();
+                    tempoUsoExistente.get().addMensagem(textoMensagem);
                 } else {
                     // Se não existir, adiciona o novo TempoUso à lista
+                    tempoUsoTemp.addQntMensagens(); // Inicializa a contagem de mensagens para esse TempoUso
+                    tempoUsoTemp.addMensagem(textoMensagem);
                     usuarioTempoUso.addTempoUso(tempoUsoTemp);
-                    // Inicializa a contagem de mensagens para esse TempoUso
-                    tempoUsoTemp.addQntMensagens();
                 }
             }
         }
