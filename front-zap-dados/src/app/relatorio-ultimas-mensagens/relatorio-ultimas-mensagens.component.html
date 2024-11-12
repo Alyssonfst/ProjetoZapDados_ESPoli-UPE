@@ -1,0 +1,15 @@
+<div>
+    <h1 class="cabecalho">Relatório de ultimas mensagens por usuário</h1>
+    <p class="cabecalho" style="margin-bottom: 50px;">Aqui nós teremos os relatórios das mensagens nos últimos 30 dias por usuário. 
+        Basta selecionar o usuário a ser verificado.</p>
+</div>
+
+<app-filtro-component
+
+  class="filtro"
+  [showAllOption]="false"
+  [uniqueUsers]="uniqueUsers"
+  [selectedUser]="selectedUser"
+  (filterChange)="handleFilterChange($event)"
+  (searchChange)="handleSearch($event)">
+</app-filtro-component>
