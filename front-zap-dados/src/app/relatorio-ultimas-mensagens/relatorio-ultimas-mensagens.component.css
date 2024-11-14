@@ -5,4 +5,38 @@
     justify-content: center;
     text-align: center;
   }
+
+  .messages-container {
+    margin-top: 20px;
+  }
+  
+  .sub-header {
+
+    text-align: center;
+  }
+  .message-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .message-date {
+    color: #666;
+    min-width: 150px;
+  }
+  
+  .message-content {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .no-messages {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
   

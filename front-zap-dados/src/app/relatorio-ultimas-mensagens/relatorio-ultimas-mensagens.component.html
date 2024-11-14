@@ -1,11 +1,11 @@
 <div>
-    <h1 class="cabecalho">Relatório de ultimas mensagens por usuário</h1>
-    <p class="cabecalho" style="margin-bottom: 50px;">Aqui nós teremos os relatórios das mensagens nos últimos 30 dias por usuário. 
-        Basta selecionar o usuário a ser verificado.</p>
+  <h1 class="cabecalho">Relatório de últimas mensagens por usuário</h1>
+  <p class="cabecalho" style="margin-bottom: 50px;">
+    Aqui nós teremos os relatórios das mensagens nos últimos 30 dias por usuário. Basta selecionar o usuário a ser verificado.
+  </p>
 </div>
 
 <app-filtro-component
-
   class="filtro"
   [showAllOption]="false"
   [uniqueUsers]="uniqueUsers"
@@ -13,3 +13,22 @@
   (filterChange)="handleFilterChange($event)"
   (searchChange)="handleSearch($event)">
 </app-filtro-component>
+
+<div class="messages-container" *ngIf="selectedUser">
+  <h3 class="sub-header">Mensagens dos últimos 30 dias para {{ selectedUser }}</h3>
+  
+  <div *ngIf="last30DaysMessages.length === 0" class="no-messages">
+    Nenhuma mensagem encontrada nos últimos 30 dias.
+  </div>
+
+  <div *ngIf="last30DaysMessages.length > 0" class="messages-list">
+    <div *ngFor="let message of last30DaysMessages" class="message-item">
+      <div class="message-date">
+        {{ message.data | date:'dd/MM/yyyy HH:mm' }}
+      </div>
+      <div class="message-content">
+        <div *ngFor="let texto of message.mensagens">{{ texto }}</div>
+      </div>
+    </div>
+  </div>
+</div>
