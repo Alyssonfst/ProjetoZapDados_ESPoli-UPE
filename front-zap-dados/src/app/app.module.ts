@@ -19,6 +19,7 @@ import { FiltroComponentComponent } from './filtro-component/filtro-component.co
 import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
 import { FluxoDePessoasComponent } from './fluxo-de-pessoas/fluxo-de-pessoas.component';
 import { RelatorioUltimasMensagensComponent } from './relatorio-ultimas-mensagens/relatorio-ultimas-mensagens.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RelatorioUltimasMensagensComponent } from './relatorio-ultimas-mensagen
     FiltroComponentComponent,
     IntroducaoComponentComponent,
     FluxoDePessoasComponent,
-    RelatorioUltimasMensagensComponent
+    RelatorioUltimasMensagensComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
