@@ -1,47 +1,53 @@
-<div class="head">
-  <h1>Usuários mais ativos por dia e horário</h1>
-  <img src="{{imagem}}" alt="Logo ZapDados" class="logo" />
-</div>
-
 <div>
-  <h3 class="head3">Como ler os resultados dos gráficos</h3>
-  <p style="margin-bottom: 50px;">* No gráfico "Uso por dia da semana", a variação por dia é mostrada de 
-    acordo com o volume de mensagens trocadas naquele dia da semana, incluindo todos os participantes da conversa.
-  <br>
-  * No gráfico "Uso por horário do dia", os horários são indicados próximos ao horário real porque usamos faixas de tempo de 1 hora.
-  </p>
+  <div class="head">
+    <h1>Usuários mais ativos por dia e horário</h1>
+    <img src="{{imagem}}" alt="Logo ZapDados" class="logo" />
+  </div>
+
+  <div>
+    <h3 class="head3">Como ler os resultados dos gráficos</h3>
+    <p style="margin-bottom: 50px;">* No gráfico "Uso por dia da semana", a variação por dia é mostrada de 
+      acordo com o volume de mensagens trocadas naquele dia da semana, incluindo todos os participantes da conversa.
+    <br>
+    * No gráfico "Uso por horário do dia", os horários são indicados próximos ao horário real porque usamos faixas de tempo de 1 hora.
+    </p>
+  </div>
+  <app-filtro-component
+    *ngIf="!errorExtractUser"
+    [uniqueUsers]="uniqueUsers"
+    [selectedUser]="selectedUser"
+    (filterChange)="handleFilterChange($event)"
+    (searchChange)="handleSearch($event)">
+  </app-filtro-component>
+
+  <div *ngIf="errorExtractUser" class="erro">{{messageErrorExtract}}</div>
+
+  <div *ngIf="errorChart" class="erro">{{messageErrorChart}}</div>
+
+  <div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0;" 
+      *ngIf="!errorChart" id="contentToDownload">
+    <div>
+      <h2>Uso por Horário do Dia</h2>
+      <canvas
+        baseChart
+        [datasets]="timeOfDayChartData"
+        [labels]="timeOfDayChartLabels"
+        [legend]="true"
+        [type]="'bar'">
+      </canvas>
+    </div>
+    <div>
+      <h2>Uso por Dia da Semana</h2>
+      <canvas
+        baseChart
+        [datasets]="dayOfWeekChartData"
+        [labels]="dayOfWeekChartLabels"
+        [legend]="true"
+        [type]="'radar'">
+      </canvas>
+    </div>
+  </div>
 </div>
-<app-filtro-component
-  *ngIf="!errorExtractUser"
-  [uniqueUsers]="uniqueUsers"
-  [selectedUser]="selectedUser"
-  (filterChange)="handleFilterChange($event)"
-  (searchChange)="handleSearch($event)">
-</app-filtro-component>
-
-<div *ngIf="errorExtractUser" class="erro">{{messageErrorExtract}}</div>
-
-<div *ngIf="errorChart" class="erro">{{messageErrorChart}}</div>
-
-<div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0;" *ngIf="!errorChart">
-  <div>
-    <h2>Uso por Horário do Dia</h2>
-    <canvas
-      baseChart
-      [datasets]="timeOfDayChartData"
-      [labels]="timeOfDayChartLabels"
-      [legend]="true"
-      [type]="'bar'">
-    </canvas>
-  </div>
-  <div>
-    <h2>Uso por Dia da Semana</h2>
-    <canvas
-      baseChart
-      [datasets]="dayOfWeekChartData"
-      [labels]="dayOfWeekChartLabels"
-      [legend]="true"
-      [type]="'radar'">
-    </canvas>
-  </div>
+<div class="button-container" *ngIf="!errorChart && !errorExtractUser && !errorFilterUser">
+  <button (click)="downloadAsPDF()" class="button">Download PDF</button>
 </div>

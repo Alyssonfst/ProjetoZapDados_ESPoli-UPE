@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
 @Component({
   selector: 'app-relatorio-tempo-uso',
   templateUrl: './relatorio-tempo-uso.component.html',
@@ -41,6 +44,44 @@ export class RelatorioTempoUsoComponent implements OnInit {
     this.carregarUsuarios();
   }
 
+  downloadAsPDF() {
+    const element = document.getElementById('contentToDownload');
+    if (!element) return;
+  
+    const fileName = prompt('Digite o nome do arquivo:', 'relatorio-tempo-uso');
+    if (!fileName) return;
+  
+    html2canvas(element).then((canvas) => {
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4: 210mm x 297mm
+      const pdfWidth = pdf.internal.pageSize.getWidth(); // Largura do PDF
+      const pdfHeight = pdf.internal.pageSize.getHeight(); // Altura do PDF
+  
+      const imgWidth = canvas.width; // Largura da imagem do canvas
+      const imgHeight = canvas.height; // Altura da imagem do canvas
+  
+      // Ajustar proporção para priorizar largura
+      const scale = pdfWidth / imgWidth; 
+      const imgScaledWidth = pdfWidth; // Forçar a largura do PDF
+      const imgScaledHeight = imgHeight * scale; // Escalar altura proporcionalmente
+  
+      const imgData = canvas.toDataURL('image/png');
+  
+      // Verificar se a altura extrapola o PDF e ajustar:
+      const yOffset = imgScaledHeight > pdfHeight ? 0 : (pdfHeight - imgScaledHeight) / 2;
+  
+      pdf.addImage(
+        imgData,
+        'PNG',
+        0, // Início horizontal (0: alinhar à esquerda)
+        yOffset, // Centralizar verticalmente, se couber
+        imgScaledWidth,
+        imgScaledHeight
+      );
+  
+      pdf.save(`${fileName}.pdf`);
+    });
+  }
+  
   carregarUsuarios(): void {
     this.http.get<any[]>(`${this.apiUrl}api/tempo/obter-tempo-uso`).subscribe(
       (data) => {

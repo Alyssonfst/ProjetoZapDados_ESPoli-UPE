@@ -1,4 +1,4 @@
-<div class="componente-graficos">
+<div class="componente-graficos" id="contentToDownload">
     <h3>Fluxo de Entradas e Saídas por Mês</h3>
 
     <div class="graficos" *ngIf="!errorChart">
@@ -17,7 +17,9 @@
         [options]="{ responsive: true }">
 </canvas>
     </div>
-  </div>
 
-  <div *ngIf="errorChart" class="erro">{{errorMessage}}</div>
-  
+    <div *ngIf="errorChart" class="erro">{{errorMessage}}</div>
+  </div>
+<div class="button-container" *ngIf="!errorChart">
+    <button (click)="downloadAsPDF()" class="button">Download PDF</button>
+</div>

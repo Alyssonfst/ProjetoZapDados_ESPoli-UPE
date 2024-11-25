@@ -38,3 +38,23 @@
 .search-container, .select-container {
   margin-right: 10px;
 }
+
+.button {
+  background-color: rgba(144, 238, 144, 0.5); 
+  border: 2px solid #90ee90; 
+  color: #000; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s; 
+  margin-bottom: 20px;
+}
+.button-container {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

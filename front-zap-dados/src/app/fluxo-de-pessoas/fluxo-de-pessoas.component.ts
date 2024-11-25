@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
 @Component({
   selector: 'app-fluxo-de-pessoas',
   templateUrl: './fluxo-de-pessoas.component.html',
@@ -28,6 +31,41 @@ export class FluxoDePessoasComponent implements OnInit {
     this.carregarEntradaSaida()
   }
 
+  downloadAsPDF() {
+    const element = document.getElementById('contentToDownload');
+    if (!element) return;
+  
+    const fileName = prompt('Digite o nome do arquivo:', 'fluxo-de-pessoas');
+    if (!fileName) return;
+  
+    html2canvas(element).then((canvas) => {
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4: 210mm x 297mm
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+  
+      // Obter largura e altura do canvas
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+  
+      // Calcular proporção para encaixar no tamanho do PDF
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const imgScaledWidth = imgWidth * ratio;
+      const imgScaledHeight = imgHeight * ratio;
+  
+      const imgData = canvas.toDataURL('image/png');
+      pdf.addImage(
+        imgData, 
+        'PNG', 
+        (pdfWidth - imgScaledWidth) / 2, // Centralizar horizontalmente
+        (pdfHeight - imgScaledHeight) / 2, // Centralizar verticalmente
+        imgScaledWidth, 
+        imgScaledHeight
+      );
+  
+      pdf.save(`${fileName}.pdf`);
+    });
+  }
+  
   carregarEntradaSaida(): void {
 
     this.http.get<any[]>(`${this.apiURL}api/registro/obter-entradas-saidas`).subscribe(
