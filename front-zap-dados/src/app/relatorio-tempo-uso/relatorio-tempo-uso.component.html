@@ -12,14 +12,18 @@
   </p>
 </div>
 <app-filtro-component
+  *ngIf="!errorExtractUser"
   [uniqueUsers]="uniqueUsers"
   [selectedUser]="selectedUser"
   (filterChange)="handleFilterChange($event)"
   (searchChange)="handleSearch($event)">
 </app-filtro-component>
 
+<div *ngIf="errorExtractUser" class="erro">{{messageErrorExtract}}</div>
 
-<div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0;">
+<div *ngIf="errorChart" class="erro">{{messageErrorChart}}</div>
+
+<div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0;" *ngIf="!errorChart">
   <div>
     <h2>Uso por Horário do Dia</h2>
     <canvas

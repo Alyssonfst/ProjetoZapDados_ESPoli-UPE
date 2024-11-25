@@ -10,6 +10,14 @@
     margin-top: 20px;
   }
   
+  .erro {
+    background-color: #ffe6e6; 
+    border: 1px solid #ff0000; 
+    color: #b30000; 
+    padding: 15px; 
+    border-radius: 5px;
+    text-align: center; 
+  }
   .sub-header {
 
     text-align: center;

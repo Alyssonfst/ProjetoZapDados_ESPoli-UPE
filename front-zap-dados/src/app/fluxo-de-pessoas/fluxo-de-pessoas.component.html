@@ -1,7 +1,7 @@
 <div class="componente-graficos">
     <h3>Fluxo de Entradas e Saídas por Mês</h3>
 
-    <div class="graficos">
+    <div class="graficos" *ngIf="!errorChart">
         <canvas 
         baseChart 
         [datasets]="entradaChartData"
@@ -18,4 +18,6 @@
 </canvas>
     </div>
   </div>
+
+  <div *ngIf="errorChart" class="erro">{{errorMessage}}</div>
   

@@ -25,6 +25,14 @@ export class RelatorioTempoUsoComponent implements OnInit {
   dayOfWeekChartLabels = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
   imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png';
 
+  errorExtractUser: boolean = false;
+  errorFilterUser: boolean = false;
+  errorChart: boolean = false;
+
+  messageErrorChart: string = '';
+  messageErrorFilter: string = '';
+  messageErrorExtract: string = '';
+
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
@@ -50,14 +58,22 @@ export class RelatorioTempoUsoComponent implements OnInit {
 
   extractUniqueUsers(): void {
     const usernamesSet = new Set<string>();
-    this.usuarios.forEach(usuario => {
-      if (usuario.username) {
-        usernamesSet.add(usuario.username);
-      } else {
-        console.warn('Usuário sem nome detectado:', usuario);
-      }
-    });
-    this.uniqueUsers = Array.from(usernamesSet);
+    this.errorExtractUser = false;
+    this.messageErrorChart = ''
+    try {
+      this.usuarios.forEach(usuario => {
+        if (usuario.username) {
+          usernamesSet.add(usuario.username);
+        } else {
+          console.warn('Usuário sem nome detectado:', usuario);
+        }
+      });
+      this.uniqueUsers = Array.from(usernamesSet);
+    } catch (error) {
+      console.error('Erro ao extrair usuários únicos:', error);
+      this.errorExtractUser = true;
+      this.messageErrorExtract = 'Erro ao extrair usuários únicos. Por favor, verifique seu arquivo e tente novamente.';
+    }
   }
 
   handleFilterChange(username: string): void {
@@ -67,6 +83,8 @@ export class RelatorioTempoUsoComponent implements OnInit {
   }
 
   handleSearch(searchTerm: string): void {
+    try {
+      
     this.searchTerm = searchTerm;
   
 
@@ -76,10 +94,19 @@ export class RelatorioTempoUsoComponent implements OnInit {
   
 
       this.uniqueUsers = Array.from(new Set(this.filteredUsers.map(usuario => usuario.username)));
+    } catch (error) {
+      console.error('Erro ao filtrar usuários:', error);
+    }
   }
   
 
   atualizarGraficos(): void {
+
+    this.errorChart = false
+    this.messageErrorChart = '';
+
+    try {
+      
     if (this.selectedUser === 'all') {
 
       this.timeOfDayChartData = [{
@@ -139,7 +166,12 @@ export class RelatorioTempoUsoComponent implements OnInit {
         };
       });
     }
+  } catch (error) {
+    console.error('Erro ao atualizar gráficos:', error);
+    this.errorChart = true;
+    this.messageErrorChart = 'Erro ao atualizar gráficos. Por favor, verifique seu arquivo e tente novamente.';
   }
+}
 
 
 

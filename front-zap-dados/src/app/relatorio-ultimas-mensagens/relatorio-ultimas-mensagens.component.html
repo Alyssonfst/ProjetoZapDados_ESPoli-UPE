@@ -6,6 +6,7 @@
 </div>
 
 <app-filtro-component
+  *ngIf="!erroExtractUser && !erroFilterUser && !erroExtractMessages"
   class="filtro"
   [showAllOption]="false"
   [uniqueUsers]="uniqueUsers"
@@ -14,7 +15,11 @@
   (searchChange)="handleSearch($event)">
 </app-filtro-component>
 
-<div class="messages-container" *ngIf="selectedUser">
+<div *ngIf="erroExtractUser || erroFilterUser || erroExtractMessages" class="erro">
+  {{ mensagemErro }}
+</div>
+
+<div class="messages-container" *ngIf="selectedUser && !erroExtractUser && !erroFilterUser && !erroExtractMessages">
   <h3 class="sub-header">Mensagens dos últimos 30 dias para {{ selectedUser }}</h3>
   
   <div *ngIf="last30DaysMessages.length === 0" class="no-messages">
