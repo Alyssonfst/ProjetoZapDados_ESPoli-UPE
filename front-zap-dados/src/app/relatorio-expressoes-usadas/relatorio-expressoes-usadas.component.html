@@ -1,1 +1,20 @@
-<p>relatorio-expressoes-usadas works!</p>
+<div>
+    <div class="header">
+        <h1>Relatório de palavras mais usadas</h1>
+    </div>
+
+    <div class="erro" *ngIf="errorChart">{{messageErrorChart}}</div>
+
+    <div class="grafico" id="contentToDownload" *ngIf="!errorChart">
+        <canvas baseChart
+                [datasets]="wordChartData"
+                [labels]="wordChartLabels"
+                [legend]="true"
+                type="bar">
+        </canvas>
+    </div>
+
+    <div class="button-container" *ngIf="!errorChart">
+        <button (click)="downloadAsPDF()" class="button">Download PDF</button>
+    </div>
+</div>
