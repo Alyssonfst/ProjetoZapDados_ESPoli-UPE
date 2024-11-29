@@ -1,4 +1,4 @@
-package br.com.zapdados.service;
+/* package br.com.zapdados.service;
 
 import edu.stanford.nlp.pipeline.*;
 import org.springframework.stereotype.Service;
@@ -57,3 +57,4 @@ public class RelatorioExpressoesService {
         return expressoes;
     }
 }
+ */
