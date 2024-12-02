@@ -24,13 +24,16 @@
 
   <div *ngIf="errorChart" class="erro">{{messageErrorChart}}</div>
 
-  <div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0;" 
+  <div style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 0; align-items: center; text-align: center;" 
       *ngIf="!errorChart" id="contentToDownload">
     <div>
       <h2>Uso por Horário do Dia</h2>
       <canvas
+        width="800"
+        height="500"
         baseChart
         [datasets]="timeOfDayChartData"
+        [options]="chartOptions"
         [labels]="timeOfDayChartLabels"
         [legend]="true"
         [type]="'bar'">
@@ -39,6 +42,7 @@
     <div>
       <h2>Uso por Dia da Semana</h2>
       <canvas
+        width="400"
         baseChart
         [datasets]="dayOfWeekChartData"
         [labels]="dayOfWeekChartLabels"
