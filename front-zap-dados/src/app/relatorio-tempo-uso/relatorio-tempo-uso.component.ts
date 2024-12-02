@@ -25,7 +25,17 @@ export class RelatorioTempoUsoComponent implements OnInit {
     '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', 
     '22:00', '23:00'];
     
-  dayOfWeekChartLabels = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+  dayOfWeekMap: { [key: string]: string } = {
+      MONDAY: 'Segunda-feira',
+      TUESDAY: 'Terça-feira',
+      WEDNESDAY: 'Quarta-feira',
+      THURSDAY: 'Quinta-feira',
+      FRIDAY: 'Sexta-feira',
+      SATURDAY: 'Sábado',
+      SUNDAY: 'Domingo',
+    };
+    
+  dayOfWeekChartLabels = Object.values(this.dayOfWeekMap);
   imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png';
 
   errorExtractUser: boolean = false;
@@ -36,6 +46,19 @@ export class RelatorioTempoUsoComponent implements OnInit {
   messageErrorFilter: string = '';
   messageErrorExtract: string = '';
 
+  chartOptions = {
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true
+      }
+    }
+  };
+  
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
@@ -89,7 +112,7 @@ export class RelatorioTempoUsoComponent implements OnInit {
         this.usuarios = data;
         this.filteredUsers = data;
         this.extractUniqueUsers();
-        this.atualizarGraficos();
+        this.atualizarGraficosAll();
       },
       (error) => {
         console.error('Erro ao carregar usuários:', error);
@@ -119,8 +142,15 @@ export class RelatorioTempoUsoComponent implements OnInit {
 
   handleFilterChange(username: string): void {
     this.selectedUser = username;
-    this.filteredUsers = username === 'all' ? this.usuarios : this.usuarios.filter(usuario => usuario.username === username);
-    this.atualizarGraficos();
+    if (username === 'all') {
+      this.filteredUsers = this.usuarios
+      this.atualizarGraficosAll()
+    }
+    
+    else {
+      this.filteredUsers = this.usuarios.filter(usuario => usuario.username === username);
+      this.atualizarGraficos();
+    }
   }
 
   handleSearch(searchTerm: string): void {
@@ -141,6 +171,95 @@ export class RelatorioTempoUsoComponent implements OnInit {
   }
   
 
+  atualizarGraficosAll(): void {
+
+    this.errorChart = false
+    this.messageErrorChart = '';
+
+    try {
+
+      const userActivity = this.usuarios.map(usuario => ({
+        username: usuario.username,
+        totalMessages: usuario.temposUso.reduce((sum: number, tempo: any) => sum + tempo.qntMensagens, 0)
+      }));
+  
+      userActivity.sort((a, b) => b.totalMessages - a.totalMessages);
+  
+      const topUsers = userActivity.slice(0, 10);
+      const others = userActivity.slice(10);
+  
+      // Dados para os 10 mais ativos
+      const topUsersData = topUsers.map(user => ({
+        data: Array(24).fill(0),
+        label: user.username,
+        backgroundColor: this.gerarCorAleatoria(),
+      }));
+  
+      // Dados para os outros
+      const othersData = {
+        data: Array(24).fill(0),
+        label: 'Outros',
+        backgroundColor: 'rgba(200, 200, 200, 0.5)',
+      };
+  
+      this.usuarios.forEach(usuario => {
+        const targetData =
+          topUsers.some(user => user.username === usuario.username)
+            ? topUsersData.find(data => data.label === usuario.username)
+            : othersData;
+  
+        if (targetData) {
+          usuario.temposUso.forEach((tempo: any) => {
+            if (tempo.horaDoDia >= 0 && tempo.horaDoDia < 24) {
+              targetData.data[tempo.horaDoDia] += tempo.qntMensagens;
+            }
+          });
+        }
+      });
+  
+      // Atualiza os gráficos
+      this.timeOfDayChartData = [...topUsersData, othersData];
+      this.dayOfWeekChartData = this.generateDayOfWeekData(topUsers, others);
+  
+    } catch (error) {
+      console.error('Erro ao atualizar gráficos:', error);
+      this.errorChart = true;
+      this.messageErrorChart = 'Erro ao atualizar gráficos. Por favor, verifique seu arquivo e tente novamente.';
+    }
+  }
+  
+  generateDayOfWeekData(topUsers: any[], others: any): any[] {
+    const topUsersDayData = topUsers.map(user => ({
+      data: Object.keys(this.dayOfWeekMap).map(diaIngles => {
+        const usuario = this.usuarios.find(u => u.username === user.username);
+        return usuario
+          ? usuario.temposUso
+              .filter((tempo: any) => tempo.diaSemana.toUpperCase() === diaIngles)
+              .reduce((sum: number, tempo: any) => sum + tempo.qntMensagens, 0)
+          : 0;
+      }),
+      label: user.username,
+      backgroundColor: this.gerarCorAleatoria(),
+    }));
+  
+    const othersDayData = {
+      data: Object.keys(this.dayOfWeekMap).map(diaIngles => {
+        return others.reduce((sum: any, user: any) => {
+          const usuario = this.usuarios.find(u => u.username === user.username);
+          return sum + (usuario
+            ? usuario.temposUso
+                .filter((tempo: any) => tempo.diaSemana.toUpperCase() === diaIngles)
+                .reduce((sum: number, tempo: any) => sum + tempo.qntMensagens, 0)
+            : 0);
+        }, 0);
+      }),
+      label: 'Outros',
+      backgroundColor: 'rgba(200, 200, 200, 0.5)',
+    };
+  
+    return [...topUsersDayData, othersDayData];
+  }
+  
   atualizarGraficos(): void {
 
     this.errorChart = false
