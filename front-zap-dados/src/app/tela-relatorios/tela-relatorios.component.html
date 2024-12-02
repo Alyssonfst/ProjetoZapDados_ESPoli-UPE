@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios</title>
+  <link rel="stylesheet" href="tela-relatorios.component.css">
+</head>
+<body>
+  <div class="reports-page">
+  <h1>Selecione o relatório que deseja ver</h1>
+
+  <div class="report-list">
+    <button class="btn-report" (click)="mostrarRelatorio('tempo-uso')">Relatório de Tempo de Uso</button>
+    <button class="btn-report" (click)="mostrarRelatorio('ultimas-mensagens')">Relatório de Últimas Palavras</button>
+    <button class="btn-report" (click)="mostrarRelatorio('expressoes-usadas')">Relatório de Expressões Usadas</button>
+    <button class="btn-report" (click)="mostrarRelatorio('fluxo-pessoas')">Relatório de Fluxo de Pessoas</button>
+  </div>
+
+  <div class="report-space">
+    <!-- Exibe o componente correspondente ao tipo de relatório selecionado -->
+    <app-relatorio-tempo-uso *ngIf="currentReport === 'tempo-uso'"></app-relatorio-tempo-uso>
+    <app-relatorio-ultimas-mensagens *ngIf="currentReport === 'ultimas-mensagens'"></app-relatorio-ultimas-mensagens>
+    <app-relatorio-expressoes-usadas *ngIf="currentReport === 'expressoes-usadas'"></app-relatorio-expressoes-usadas>
+    <app-fluxo-de-pessoas *ngIf="currentReport === 'fluxo-pessoas'"></app-fluxo-de-pessoas>
+  </div>
+</div>
+
+</body>
+<app-footer></app-footer>
