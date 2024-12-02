@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="introducaoComponent.component.css">
+</head>
+<body>
+  
+
+  <div class="container">
+    <!-- Cabeçalho -->
+    <app-navbar></app-navbar>
+    
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+
+      <div class="logo">
+        <img src="/assets/logo-zapdados.png" alt="Logo ZapDados" class="logo"/>
+      </div>
+
+      <h1 class="main-title">Aumente o <strong class="highlight">Engajamento</strong> de grupos de WhatsApp com base em <strong class="highlight">Dados</strong></h1>
+      
+      
+      <div class=analyze>
+        <div class="left-section">
+          <h3>Relatório: Volume de mensagens por hora do dia.</h3>
+          <div class="graph-container">
+            <canvas id="userChart"></canvas> <!-- Canvas para o gráfico -->
+          </div>
+        </div>
+
+        <div class="right-section">
+          <div class="graph-info">
+            <h3>Com esse Relatório você consegue: </h3>
+            <h4>• Verificar em qual horário o seu grupo fica mais ativo.</h4>
+            <h4>• Aprender padrões de comportamento.</h4>
+            <h4>• Identificar os usuários mais engajados.</h4>
+          </div>
+
+          <button class="analyze-button" (click)="navigateToLogin()">Analisar dados agora</button>
+          <small>Você será direcionado para o login</small>
+
+        </div>
+      </div>
+      
+      <hr>
+      
+      <section class="info">
+        <h2>Como funciona?</h2>
+        <p>
+          Basta enviar um arquivo de texto de sua conversa, e nós fazemos o resto! Analisamos e retornamos os dados de uso
+          e expressões do grupo para você.
+        </p>
+      </section>
+      
+      <hr>
+      
+      <section class="info">
+        <h2>Porque escolher o ZapDados?</h2>
+        <p>
+          Análises rápidas e precisas das conversas do seu grupo, permitindo que você compreenda melhor o comportamento e engajamento dos participantes.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+<app-footer></app-footer>
+</html>
+  

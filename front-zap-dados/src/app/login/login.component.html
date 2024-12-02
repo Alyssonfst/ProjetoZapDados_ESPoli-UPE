@@ -1,22 +1,43 @@
-<div class="img-container">
-  <img src="{{imagem}}" alt="Logo ZapDados" class="img">
-</div>
-<div class="login-container">
-    <h2 class="head">Acessar APP</h2>
-    <form (ngSubmit)="onLogin()" style="align-items: center;">
-      <div>
-        <label for="username">Usuário: </label>
-        <input type="text" id="username" [(ngModel)]="username" name="username" required>
-      </div>
-      <div>
-        <label for="password" style="padding: 5px;">Senha: </label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required>
-      </div>
-      <button type="submit" style="background-color: #49ac91;"><b>Acessar</b></button>
-      <button (click)="navigateToIntroducao()" style="background-color: #49ac91;"><b>Retornar</b></button>
-    </form>
-    <div *ngIf="loginError" class="error-message">
-      Usuário ou senha inválidos.
-    </div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <app-navbar></app-navbar>
+
+  <div class="logo">
+    <img src="/assets/logo-zapdados.png" alt="Logo ZapDados" class="img">
   </div>
-  
+
+  <div class="login-container">
+    <h2 class="head">Fazer Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <div class="input-group">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="Digite seu usuário" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Digite sua senha" required>
+      </div>
+
+      <div *ngIf="loginError" class="error-message">
+        Usuário ou senha inválidos.
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn-access"><b>Acessar</b></button>
+        <button type="button" (click)="navigateToIntroducao()" class="btn-return"><b>Retornar</b></button>
+      </div>
+    </form>
+  </div>
+
+
+</body>
+<app-footer></app-footer>

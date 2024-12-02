@@ -1,0 +1,121 @@
+body {
+  background-color: #f7f4f8;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  width: 90%; 
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo e título */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  margin-top: 40px;        
+}
+
+.logo img{
+  width: 25%;
+}
+
+.main-title{
+  color: #bf6bec;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: -50px;
+}
+
+.main-title .highlight {
+  color: #49ac91;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*seção analisar*/
+
+.analyze{
+  background-color: #79797b1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px; 
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.left-section {
+  flex: 1;
+  text-align: center;
+  color: #4b4b4d;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.analyze-button {
+  display: block;
+  width: 70%;
+  padding: 30px;
+  margin: 20px auto;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #49ac9291;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.analyze-button:hover {
+  background-color: #bf6bec;
+}
+
+small{
+  color: #bf6bec;
+  font-size: 10px; /* Tamanho ajustado para ficar mais discreto */
+  text-align: center;
+  margin-top: -20px; /* Coloca o small mais próximo do botão */
+}
+
+.graph-container {
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.graph-info h3{
+  font-size: 20px;
+  text-align: center;
+}
+
+.graph-info h4{
+  font-size: 15px;
+  color: #4b4b4d;
+}
+
+.info {
+  padding-bottom: 50px;
+}
