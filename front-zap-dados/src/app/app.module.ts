@@ -16,10 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CarregarArquivoComponent } from './carregar-arquivo/carregar-arquivo.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { FiltroComponentComponent } from './filtro-component/filtro-component.component';
-import { IntroducaoComponentComponent } from './introducao-component/introducao-component.component';
+import { IntroducaoComponentComponent } from './introducaoComponent/introducaoComponent.component';
 import { FluxoDePessoasComponent } from './fluxo-de-pessoas/fluxo-de-pessoas.component';
 import { RelatorioUltimasMensagensComponent } from './relatorio-ultimas-mensagens/relatorio-ultimas-mensagens.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TelaRelatoriosComponent } from './tela-relatorios/tela-relatorios.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     IntroducaoComponentComponent,
     FluxoDePessoasComponent,
     RelatorioUltimasMensagensComponent,
-    CadastroComponent
+    CadastroComponent,
+    FooterComponent,
+    NavbarComponent,
+    TelaRelatoriosComponent
   ],
   imports: [
     BrowserModule,
