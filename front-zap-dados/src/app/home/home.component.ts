@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
+  imageLogoPath = `${environment.imageBasePath}logo-slogan.png`;
+
   constructor() { }
 
   imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png' ;

@@ -11,6 +11,9 @@ import { Chart } from 'chart.js'; // Importa o Chart.js
 export class IntroducaoComponentComponent implements OnInit {
 
   imagem: string = environment.production ? '/front-zap-dados/assets/logo-zapdados.jpg' : '../../assets/logo-zapdados.jpg';
+
+  imageLogoPngPath = `${environment.imageBasePath}logo-zapdados.png`;
+
   chart: any;
 
   constructor(private router: Router) {}
