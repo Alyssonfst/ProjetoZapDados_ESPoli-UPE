@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  imageLogoPath = `${environment.imageBasePath}logo-slogan.png`;
+  LogoSloganPath = `${environment.imageBasePath}logo-slogan.png`;
 
   constructor() { }
 

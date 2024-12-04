@@ -13,7 +13,7 @@ export class LoginComponent {
   password = '';
   loginError = false;
 
-  imagem: string = environment.production ? '/front-zap-dados/assets/ZAPDADOS_fundobranco_slogan.png' : '../../assets/ZAPDADOS_fundobranco_slogan.png';
+  LogoPath = `${environment.imageBasePath}logo-zapdados.png`;
   
   constructor(private authService: AuthService, private router: Router) { }
 
