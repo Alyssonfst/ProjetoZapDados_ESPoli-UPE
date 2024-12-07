@@ -25,18 +25,28 @@ Nossas pessoas usuárias são mediadores(as)/facilitadores(as)/administradores(a
 
 Uma vez feito o login, basta subir um arquivo .txt e começar a analisar os dados! Veja as funcionalidades atuais:
 
+
 * <b>Carregar arquivo de conversa</b>: permite o upload do arquivo de texto extraído das conversas de grupos:
-          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/3d3ecced-1548-f6d0-0f6f-b57c0af3362a.png)
+  
+   ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/3d3ecced-1548-f6d0-0f6f-b57c0af3362a.png)
+
   
 * <b>Relatório de Tempo de Uso (tela e PDF)</b>: mostra, por grupo e por membro, o volume de mensagens agrupado por hora de uso e por dia da semana. Inclui visão dos top 10 membros em volume de mensagens:
-          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/2c79face-263b-c6e5-520c-2fdcfa93d6c2.png)
   
-* <b>Relatório de Últimas Palavras  (tela e PDF)</b>: expõe as 10 palavras mais usadas, agrupadas por volume de ocorrência.
-          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/96ca7d68-e4f8-a01f-53a4-48723bb6ff8c.png)
-  
-* <b>Relatório de Fluxo de Pessoas (tela e PDF)</b>: registra quantidade de membros que entraram e membros que saíram, agrupados por mês.
-          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/09e2229f-9f37-7797-0f89-b04853b3bd67.png)
+   ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/2c79face-263b-c6e5-520c-2fdcfa93d6c2.png)
 
+  
+* <b>Relatório de Palavras mais Usadas (tela e PDF)</b>: expõe as 10 palavras mais usadas, agrupadas por volume de ocorrência.
+
+   ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/96ca7d68-e4f8-a01f-53a4-48723bb6ff8c.png)
+  
+* <b>Relatório de Últimas Palavras (tela e PDF)</b>:  que lista as mensagens dos últimos 30 dias de um membro específico.
+  
+   ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/09e2229f-9f37-7797-0f89-b04853b3bd67.png)
+
+* <b>Relatório de Fluxo de pessoas (tela e PDF)</b>: registra quantidade de membros que entraram e membros que saíram do grupo, agrupados por mês.
+  
+   ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/3d6a84a0-47a3-a82c-f1ea-89f6aee2c04a.png)
 
 ### 🤖 Tecnologias utilizadas:
 - Front-End: Angular
