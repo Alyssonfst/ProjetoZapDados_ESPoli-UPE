@@ -32,7 +32,7 @@ Nossas pessoas usuárias são mediadores(as)/facilitadores(as) de grupos e comun
           ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/96ca7d68-e4f8-a01f-53a4-48723bb6ff8c.png)
   
 * <b>Relatório de Fluxo de Pessoas (tela e PDF)</b>: registra quantidade de membros que entraram e membros que saíram, agrupados por mês.
-          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/d4409a06-15ef-855e-44b4-c8af2471030e.png)
+          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/09e2229f-9f37-7797-0f89-b04853b3bd67.png)
 
 
 ### 🤖 Tecnologias utilizadas:
