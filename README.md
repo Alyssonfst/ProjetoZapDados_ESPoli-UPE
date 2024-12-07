@@ -16,6 +16,7 @@ Nosso projeto tem como objetivo fornecer insights valiosos por meio de relatóri
 - Compreendam o comportamento da comunidade, identificando os membros mais ativos, os horários de pico e as palavras mais usadas.
 - Avaliem o engajamento, medindo o número de mensagens e a participação dos membros.
 - Tomem decisões estratégicas, utilizando os dados para otimizar o conteúdo e melhorar a experiência dos membros.
+- Compartilhem os dados analisados com outros decisores, por meio de exportação de relatórios em PDF.
 
 ### 👩🏽‍💻 Nossos clientes
 Nossas pessoas usuárias são mediadores(as)/facilitadores(as) de grupos e comunidades de WhatsApp, cujo perfil, em geral, é de pessoas entre 20 e 40 anos, com formações ligadas às áreas de comunicação e/ou tecnologia e que atuam nessa área como freelancers ou em paralelo a outras atividades dentro de agências especializadas. Futuros clientes pagantes podem ser essas pessoas ou as empresas para as quais prestam serviços. 
@@ -24,13 +25,13 @@ Nossas pessoas usuárias são mediadores(as)/facilitadores(as) de grupos e comun
 * <b>Carregar arquivo de conversa</b>: permite o upload do arquivo de texto extraído das conversas de grupos:
           ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/3d3ecced-1548-f6d0-0f6f-b57c0af3362a.png)
   
-* <b>Relatório de Tempo de Uso</b>: mostra, por grupo e por membro, o volume de mensagens agrupado por hora de uso e por dia da semana. Inclui visão dos top 10 membros em volume de mensagens:
+* <b>Relatório de Tempo de Uso (tela e PDF)</b>: mostra, por grupo e por membro, o volume de mensagens agrupado por hora de uso e por dia da semana. Inclui visão dos top 10 membros em volume de mensagens:
           ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/2c79face-263b-c6e5-520c-2fdcfa93d6c2.png)
   
-* <b>Relatório de Últimas Palavras</b>: expõe as 10 palavras mais usadas, agrupadas por volume de ocorrência.
+* <b>Relatório de Últimas Palavras  (tela e PDF)</b>: expõe as 10 palavras mais usadas, agrupadas por volume de ocorrência.
           ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/96ca7d68-e4f8-a01f-53a4-48723bb6ff8c.png)
   
-* <b>Relatório de Fluxo de Pessoas</b>: registra quantidade de membros que entraram e membros que saíram, agrupados por mês.
+* <b>Relatório de Fluxo de Pessoas (tela e PDF)</b>: registra quantidade de membros que entraram e membros que saíram, agrupados por mês.
           ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/d4409a06-15ef-855e-44b4-c8af2471030e.png)
 
 
