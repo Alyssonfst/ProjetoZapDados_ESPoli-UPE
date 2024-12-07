@@ -7,9 +7,9 @@ Readme v1.1
 <i>Esta solução está sendo criada como atividade da disciplina de Engenharia de Software 2024.2, da Universidade de Pernambuco, e se propõe a ser uma ferramenta de análise de dados para comunidades do WhatsApp, projetada para auxiliar gestores na tomada de decisões estratégicas e no aumento do engajamento.</i>
 
 ### 🤔 Problema: gestores de comunidades do WhatsApp enfrentam desafios na obtenção de dados relevantes para suas estratégias, como:
-- Falta de ferramentas nativas: O WhatsApp não oferece recursos de análise de dados robustos.
-- Dificuldade de acompanhar tópicos: É complicado identificar e acompanhar os temas mais relevantes nas conversas.
-- Dúvidas sobre o retorno do investimento: Avaliando o impacto da comunidade nos resultados do negócio.
+- Falta de ferramentas nativas: o WhatsApp não oferece recursos de análise de dados robustos.
+- Dificuldade de acompanhar conversas: grupos grandes e/ou intensos têm muito conteúdo, o que torna difícil de acompanhar manualmente.
+- Dúvidas sobre o fluxo de membros: é desafiador monitorar entradas e saídas e dias e horas com maior atividade.
 
 ### 😃 Nossa solução: uma aplicação simples e fácil para extrair dados de conversas de grupos de WhatsApp
 Nosso projeto tem como objetivo fornecer insights valiosos por meio de relatórios personalizados, permitindo que gestores(as):
