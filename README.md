@@ -19,7 +19,7 @@ Nosso projeto tem como objetivo fornecer insights valiosos por meio de relatóri
 - Compartilhem os dados analisados com outros decisores, por meio de exportação de relatórios em PDF.
 
 ### 👩🏽‍💻 Nossos clientes
-Nossas pessoas usuárias são mediadores(as)/facilitadores(as) de grupos e comunidades de WhatsApp, cujo perfil, em geral, é de pessoas entre 20 e 40 anos, com formações ligadas às áreas de comunicação e/ou tecnologia e que atuam nessa área como freelancers ou em paralelo a outras atividades dentro de agências especializadas. Futuros clientes pagantes podem ser essas pessoas ou as empresas para as quais prestam serviços. 
+Nossas pessoas usuárias são mediadores(as)/facilitadores(as)/administradores(as) de grupos e comunidades de WhatsApp, cujo perfil, em geral, é de pessoas entre 20 e 40 anos, com formações ligadas às áreas de comunicação e/ou tecnologia e que atuam nessa área como freelancers ou em paralelo a outras atividades dentro de agências especializadas. Futuros clientes pagantes podem ser essas pessoas ou as empresas para as quais prestam serviços. 
 
 ### 🛠 Como funciona
 
