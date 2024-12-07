@@ -53,9 +53,9 @@ Uma vez feito o login, basta subir um arquivo .txt e começar a analisar os dado
 
 ### 👥 Equipe:
 - Alysson Tavares - Back-end
-- Cristiane Teixeira - Gerenciamento de Projetos e Scrum Master
+- Cristiane Teixeira - Gerente de Projeto e Scrum Master
 - Emídia Felipe - Gestão do Produto e suporte à GP
-- Guilherme Carrazzoni - Back-end e suporte à GP
+- Guilherme Carrazzoni - Back-end, front-end e suporte à GP
 - Jessica de Souza - Back-end e front-end
 - Pedro Henrique Bulle - Suporte Back-end
 - Thiago Espinhara - Mentoria técnica - Desenvolvimento
