@@ -1,7 +1,10 @@
-Readme v1.0
+Readme v1.1
+
+![Logo](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/f3ecd951-4b53-c16a-1b4b-9d9f1a7254f8.png)
+
 
 # ZAPDADOS - Versão BETA
-Esta solução está sendo criada como atividade da disciplina de Engenharia de Software 2024.2, da Universidade de Pernambuco, e se propõe a ser uma ferramenta de análise de dados para comunidades do WhatsApp, projetada para auxiliar gestores na tomada de decisões estratégicas e no aumento do engajamento.
+<i>Esta solução está sendo criada como atividade da disciplina de Engenharia de Software 2024.2, da Universidade de Pernambuco, e se propõe a ser uma ferramenta de análise de dados para comunidades do WhatsApp, projetada para auxiliar gestores na tomada de decisões estratégicas e no aumento do engajamento.</i>
 
 ### 🤔 Problema: gestores de comunidades do WhatsApp enfrentam desafios na obtenção de dados relevantes para suas estratégias, como:
 - Falta de ferramentas nativas: O WhatsApp não oferece recursos de análise de dados robustos.
@@ -14,27 +17,37 @@ Nosso projeto tem como objetivo fornecer insights valiosos por meio de relatóri
 - Avaliem o engajamento, medindo o número de mensagens e a participação dos membros.
 - Tomem decisões estratégicas, utilizando os dados para otimizar o conteúdo e melhorar a experiência dos membros.
 
-### 😃 Nossos clientes
+### 👩🏽‍💻 Nossos clientes
 Nossas pessoas usuárias são mediadores(as)/facilitadores(as) de grupos e comunidades de WhatsApp, cujo perfil, em geral, é de pessoas entre 20 e 40 anos, com formações ligadas às áreas de comunicação e/ou tecnologia e que atuam nessa área como freelancers ou em paralelo a outras atividades dentro de agências especializadas. Futuros clientes pagantes podem ser essas pessoas ou as empresas para as quais prestam serviços. 
 
-### Funcionalidades atuais
-* <b>Carregar arquivo de conversa</b>: permite o upload do arquivo de texto extraído das conversas de grupos.
-* <b>Relatório de Tempo de Uso</b>: mostra, por grupo e por membro, o volume de mensagens agrupado por hora de uso e por dia da semana.
+### 🛠 Funcionalidades atuais
+* <b>Carregar arquivo de conversa</b>: permite o upload do arquivo de texto extraído das conversas de grupos:
+          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/3d3ecced-1548-f6d0-0f6f-b57c0af3362a.png)
+  
+* <b>Relatório de Tempo de Uso</b>: mostra, por grupo e por membro, o volume de mensagens agrupado por hora de uso e por dia da semana. Inclui visão dos top 10 membros em volume de mensagens:
+          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/2c79face-263b-c6e5-520c-2fdcfa93d6c2.png)
+  
 * <b>Relatório de Últimas Palavras</b>: expõe as 10 palavras mais usadas, agrupadas por volume de ocorrência.
+          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/96ca7d68-e4f8-a01f-53a4-48723bb6ff8c.png)
+  
 * <b>Relatório de Fluxo de Pessoas</b>: registra quantidade de membros que entraram e membros que saíram, agrupados por mês.
+          ![Example Image](https://mcusercontent.com/b168565509c950eee76fc9f1a/images/d4409a06-15ef-855e-44b4-c8af2471030e.png)
 
-### Concorrentes e referências:
+
+### 🤖 Tecnologias utilizadas:
+- Front-End: Angular
+- Back-End: Java Spring
+- Banco de dados: H2
+
+
+### 👀 Concorrentes e referências:
 - WhatAnalyze: https://whatsanalyze.com/ e https://github.com/SpiritFour/whatsanalyze
 - Solução experimental brasileira: https://daltonbc.shinyapps.io/whatsapp/
 - Brevo: https://brevo.com
 - Meu Grupo Vip: https://meugrupovip.com.br/
 
-### Tecnologias utilizadas:
-- Front-End: Angular
-- Back-End: Java Spring
-- Banco de dados: H2
 
-### Integrantes:
+### 👥 Equipe:
 - Alysson Tavares - Back-end
 - Cristiane Teixeira - Gerenciamento de Projetos e Scrum Master
 - Emídia Felipe - Gestão do Produto e suporte à GP
