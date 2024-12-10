@@ -69,6 +69,7 @@ Uma vez feito o login, basta subir um arquivo .txt e começar a analisar os dado
 - Jessica de Souza - Back-end e front-end
 - Pedro Henrique Bulle - Suporte Back-end
 - Thiago Espinhara - Mentoria técnica - Desenvolvimento
+- 🏆 Cliente convidada do MVP: Cléo Celestino
 
 #### Turma de Engenharia de Software 2024.2 - Universidade de Pernambuco - UPE
 
